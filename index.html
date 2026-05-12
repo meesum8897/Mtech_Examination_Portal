@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Online Quiz System</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="exam-page">
+
+<!-- HEADER -->
+
+<div class="exam-header">
+
+    <!-- LEFT -->
+
+    <div class="exam-logo">
+
+        <h2>CS001 - Computer Proficiency License</h2>
+        <p>Online Examination System</p>
+
+    </div>
+
+    <!-- CENTER TIMER -->
+
+    <div class="timer-wrapper">
+
+        <div class="timer">
+
+            <span>Time Left</span>
+            <h1 id="time">45</h1>
+
+        </div>
+
+    </div>
+
+    <!-- RIGHT -->
+
+    <div class="exam-user">
+
+        <div>
+
+            <h4>Student</h4>
+            <small>ST2026-001</small>
+
+        </div>
+
+        <div class="profile">
+            M
+        </div>
+
+    </div>
+
+</div>
+
+<!-- MAIN -->
+
+<div class="exam-container">
+
+    <!-- LEFT SIDE -->
+
+    <div class="exam-main">
+
+        <!-- QUESTION TOP -->
+
+        <div class="question-top">
+
+            <div>
+
+                <h3>Question 1 of 26</h3>
+                <p>Marks: 1 | Time: 1 Min</p>
+
+            </div>
+
+            <div class="exam-badge">
+                Monthly Test
+            </div>
+
+        </div>
+
+        <!-- QUESTION BOX -->
+
+        <div class="question-box">
+
+            <div class="question">
+
+                Which of the following is NOT an advantage of computer?
+
+            </div>
+
+            <!-- OPTIONS -->
+
+            <label class="option">
+
+                <input type="radio" name="q1">
+                Efficiency
+
+            </label>
+
+            <label class="option">
+
+                <input type="radio" name="q1">
+                Reliability
+
+            </label>
+
+            <label class="option">
+
+                <input type="radio" name="q1">
+                Safety
+
+            </label>
+
+            <label class="option">
+
+                <input type="radio" name="q1">
+                Fast Results
+
+            </label>
+
+        </div>
+
+        <!-- BUTTONS -->
+
+        <div class="bottom-buttons">
+
+            <button class="btn btn-danger">
+                Finish Exam
+            </button>
+
+            <div class="flex gap-10">
+
+                <button class="btn btn-dark">
+                    Previous
+                </button>
+
+                <button class="btn btn-primary">
+                    Save & Next
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- SIDEBAR -->
+
+    <div class="exam-sidebar">
+
+        <h2>Question Summary</h2>
+
+        <!-- LEGEND -->
+
+        <div class="legend">
+
+            <div class="legend-item">
+
+                <div class="color green"></div>
+                Answered
+
+            </div>
+
+            <div class="legend-item">
+
+                <div class="color red"></div>
+                Unanswered
+
+            </div>
+
+            <div class="legend-item">
+
+                <div class="color yellow"></div>
+                Current
+
+            </div>
+
+            <div class="legend-item">
+
+                <div class="color gray"></div>
+                Not Visited
+
+            </div>
+
+        </div>
+
+        <!-- QUESTION GRID -->
+
+        <div class="question-grid">
+
+            <button class="q-btn current">1</button>
+
+            <button class="q-btn answered">2</button>
+            <button class="q-btn answered">3</button>
+            <button class="q-btn answered">4</button>
+            <button class="q-btn answered">5</button>
+
+            <button class="q-btn unanswered">6</button>
+            <button class="q-btn unanswered">7</button>
+
+            <button class="q-btn not-visited">8</button>
+            <button class="q-btn not-visited">9</button>
+            <button class="q-btn not-visited">10</button>
+            <button class="q-btn not-visited">11</button>
+            <button class="q-btn not-visited">12</button>
+            <button class="q-btn not-visited">13</button>
+            <button class="q-btn not-visited">14</button>
+            <button class="q-btn not-visited">15</button>
+            <button class="q-btn not-visited">16</button>
+            <button class="q-btn not-visited">17</button>
+            <button class="q-btn not-visited">18</button>
+            <button class="q-btn not-visited">19</button>
+            <button class="q-btn not-visited">20</button>
+            <button class="q-btn not-visited">21</button>
+            <button class="q-btn not-visited">22</button>
+            <button class="q-btn not-visited">23</button>
+            <button class="q-btn not-visited">24</button>
+            <button class="q-btn not-visited">25</button>
+            <button class="q-btn not-visited">26</button>
+
+        </div>
+
+        <!-- PROGRESS -->
+
+        <div class="progress-box">
+
+            <h3>Exam Progress</h3>
+
+            <div class="progress-bar">
+                <div class="progress"></div>
+            </div>
+
+            <div class="stats">
+
+                <span>Answered</span>
+                <strong class="text-primary">4</strong>
+
+            </div>
+
+            <div class="stats">
+
+                <span>Unanswered</span>
+                <strong style="color:var(--secondary-color);">2</strong>
+
+            </div>
+
+            <div class="stats">
+
+                <span>Remaining</span>
+                <strong>20</strong>
+
+            </div>
+
+            <div class="stats">
+
+                <span>Total Questions</span>
+                <strong>26</strong>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="js/script.js"></script>
+
+</body>
+</html>
