@@ -128,7 +128,7 @@
 
         <div class="bottom-buttons">
 
-            <button class="btn btn-danger">
+            <button class="btn btn-danger" id="finishExamBtn">
                 Finish Exam
             </button>
 
@@ -259,8 +259,68 @@
 
                 <span>Total Questions</span>
                 <strong>26</strong>
-
             </div>
+        </div>
+    </div>
+</div>
+
+<div class="finish-modal" id="finishModal">
+
+    <div class="finish-modal-box">
+
+        <div class="finish-modal-header">
+
+            <h2>Finish Examination</h2>
+
+        </div>
+
+        <div class="finish-modal-body">
+
+            <p class="finish-text">
+
+                Please make sure the following before 
+                <strong>FINISHING</strong> the exam.
+
+            </p>
+
+            <ul class="finish-list">
+
+                <li>
+                    You have attempted maximum number of questions.
+                </li>
+
+                <li>
+                    All the solved questions have been reviewed carefully.
+                </li>
+
+                <li>
+                    You have signed the attendance sheet.
+                </li>
+
+            </ul>
+
+            <label class="confirm-check">
+
+                <input type="checkbox" id="confirmFinish">
+
+                <span>
+                    I have read it carefully, 
+                    I still want to finish the Test.
+                </span>
+
+            </label>
+
+        </div>
+
+        <div class="finish-modal-footer">
+
+            <button class="btn btn-dark" id="cancelFinish">
+                Cancel
+            </button>
+
+            <button class="btn btn-danger" id="finalFinishBtn" disabled>
+                Finish Exam
+            </button>
 
         </div>
 
@@ -268,8 +328,53 @@
 
 </div>
 
+</body>
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="js/script.js"></script>
+<script>
+    $('#finishExamBtn').click(function(){
 
-</body>
+    $('#finishModal').fadeIn();
+
+});
+
+/* CLOSE */
+
+$('#cancelFinish').click(function(){
+
+    $('#finishModal').fadeOut();
+
+    $('#confirmFinish').prop('checked', false);
+
+    $('#finalFinishBtn').prop('disabled', true);
+
+});
+
+/* ENABLE BUTTON */
+
+$('#confirmFinish').change(function(){
+
+    if($(this).is(':checked')){
+
+        $('#finalFinishBtn').prop('disabled', false);
+
+    }else{
+
+        $('#finalFinishBtn').prop('disabled', true);
+
+    }
+
+});
+
+/* FINAL SUBMIT */
+
+$('#finalFinishBtn').click(function(){
+
+    alert('Exam Submitted Successfully');
+
+    // window.location.href = "result.html";
+
+});
+</script>
+
 </html>

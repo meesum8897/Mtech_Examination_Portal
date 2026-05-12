@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Online Quiz System</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="login-page">
+
+<div class="overlay"></div>
+
+<!-- TOP HEADER -->
+
+<div class="top-header">
+
+    <img src="https://mtechinstitute.com/wp-content/uploads/2025/03/weblogoblue.png">
+
+</div>
+
+<!-- INSTRUCTION PAGE -->
+
+<div class="login-wrapper">
+
+    <div class="login-box" style="width:760px;">
+
+        <!-- HEADER -->
+
+        <div class="login-header">
+
+            <h2 style="font-size:20px;">
+                Conduct Instructions
+            </h2>
+
+        </div>
+
+        <!-- BODY -->
+
+        <div class="login-body" style="padding:0;">
+
+            <!-- TOP AREA -->
+
+            <div style="padding:20px 25px; position:relative;">
+
+                <p class="text-light" style="font-size:14px;">
+                    Paper Start Time
+                </p>
+
+                <!-- TIMER -->
+
+                <div style="
+                    position:absolute;
+                    top:10px;
+                    right:20px;
+                ">
+
+                    <div class="timer">
+
+                        <span>Time Left</span>
+                        <h1 id="time">45</h1>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- INSTRUCTION CONTENT -->
+
+            <div style="
+                height:320px;
+                overflow-y:auto;
+                padding:20px 25px;
+                border-top:1px solid #eee;
+                border-bottom:1px solid #eee;
+                line-height:2;
+            ">
+
+                <h3 style="
+                    text-align:center;
+                    margin-bottom:25px;
+                    font-size:28px;
+                ">
+                    Important Instructions
+                </h3>
+
+                <p style="margin-bottom:20px;">
+
+                    Please read the following instructions carefully.
+                    Strict disciplinary action shall be taken against any violation during examination.
+
+                </p>
+
+                <ol style="padding-left:20px;">
+
+                    <li>
+                        Do not misbehave with the supervisor staff.
+                    </li>
+
+                    <li>
+                        You must not carry any helping material in the examination hall.
+                    </li>
+
+                    <li>
+                        Maintain silence and discipline during examination.
+                    </li>
+
+                    <li>
+                        Save your data side by side frequently.
+                    </li>
+
+                    <li style="
+                        color:red;
+                        font-weight:600;
+                    ">
+                        Do not leave the examination screen for more than 15 minutes otherwise your paper may be locked.
+                    </li>
+
+                    <li>
+                        Any loss or corruption of data without permission may result in paper cancellation.
+                    </li>
+
+                    <li>
+                        Student must complete the exam within the given time.
+                    </li>
+
+                    <li>
+                        Any unfair means will lead to immediate disqualification.
+                    </li>
+
+                    <li>
+                        Internet browsing is not allowed during examination.
+                    </li>
+
+                    <li>
+                        Make sure electricity backup is available before starting paper.
+                    </li>
+
+                </ol>
+
+                <h3 style="
+                    margin-top:25px;
+                    color:var(--primary-color);
+                ">
+                    Warnings
+                </h3>
+
+                <ul style="
+                    padding-left:20px;
+                    margin-top:10px;
+                ">
+
+                    <li>
+                        Do not refresh the browser.
+                    </li>
+
+                    <li>
+                        Do not close the examination window.
+                    </li>
+
+                    <li>
+                        Multiple login attempts may block your account.
+                    </li>
+
+                </ul>
+
+            </div>
+
+            <!-- FOOTER -->
+
+            <div style="
+                padding:18px 25px;
+                display:flex;
+                justify-content:space-between;
+                align-items:center;
+            ">
+
+                <!-- CHECKBOX -->
+
+                <label class="flex items-center gap-10">
+
+                    <input type="checkbox" id="agree">
+
+                    <span style="font-size:14px;">
+
+                        I hereby confirm that I have read above instructions carefully.
+
+                    </span>
+
+                </label>
+
+                <!-- BUTTON -->
+
+                <button class="btn btn-primary" id="startBtn" disabled>
+
+                    Start Paper
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+<script>
+
+let time = 45;
+
+setInterval(function(){
+
+    if(time > 0){
+
+        time--;
+
+        $('#time').text(time);
+
+    }
+
+},1000);
+
+/* BUTTON ENABLE */
+
+$('#startBtn').css({
+    opacity:.5,
+    cursor:'not-allowed'
+});
+
+$('#agree').change(function(){
+
+    if($(this).is(':checked')){
+
+        $('#startBtn').prop('disabled', false);
+
+        $('#startBtn').css({
+            opacity:1,
+            cursor:'pointer'
+        });
+
+    }else{
+
+        $('#startBtn').prop('disabled', true);
+
+        $('#startBtn').css({
+            opacity:.5,
+            cursor:'not-allowed'
+        });
+
+    }
+
+});
+
+</script>
+
+</body>
+</html>
