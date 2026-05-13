@@ -329,50 +329,55 @@
 </div>
 
 </body>
-<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 <script src="js/script.js"></script>
 <script>
+
+$(document).ready(function(){
+
+    /* OPEN MODAL */
+
     $('#finishExamBtn').click(function(){
 
-    $('#finishModal').fadeIn();
+        $('#finishModal').css('display','flex').hide().fadeIn();
 
-});
+    });
 
-/* CLOSE */
+    /* CLOSE MODAL */
 
-$('#cancelFinish').click(function(){
+    $('#cancelFinish').click(function(){
 
-    $('#finishModal').fadeOut();
+        $('#finishModal').fadeOut();
 
-    $('#confirmFinish').prop('checked', false);
-
-    $('#finalFinishBtn').prop('disabled', true);
-
-});
-
-/* ENABLE BUTTON */
-
-$('#confirmFinish').change(function(){
-
-    if($(this).is(':checked')){
-
-        $('#finalFinishBtn').prop('disabled', false);
-
-    }else{
+        $('#confirmFinish').prop('checked', false);
 
         $('#finalFinishBtn').prop('disabled', true);
 
-    }
+    });
 
-});
+    /* ENABLE FINISH BUTTON */
 
-/* FINAL SUBMIT */
+    $('#confirmFinish').change(function(){
 
-$('#finalFinishBtn').click(function(){
+        if($(this).is(':checked')){
 
-    alert('Exam Submitted Successfully');
+            $('#finalFinishBtn').prop('disabled', false);
 
-    // window.location.href = "result.html";
+        }else{
+
+            $('#finalFinishBtn').prop('disabled', true);
+
+        }
+
+    });
+
+    /* FINAL SUBMIT */
+
+    $('#finalFinishBtn').click(function(){
+
+        alert('Exam Submitted Successfully');
+
+    });
 
 });
 </script>
