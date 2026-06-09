@@ -14,6 +14,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="css/style.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="js/script.js"></script>
 
 </head>
 
@@ -23,56 +25,52 @@
 
 <div class="admin-sidebar">
 
-    <!-- LOGO -->
-
     <div class="admin-logo">
 
         <img src="https://mtechinstitute.com/wp-content/uploads/2025/03/weblogoblue.png">
 
     </div>
 
-    <!-- MENU -->
-
     <ul class="admin-menu">
 
         <li class="active">
-            Dashboard
+            <a href="index.html">Dashboard</a>
         </li>
 
         <li>
-            Students
+            <a href="students.html">Students</a>
         </li>
 
         <li>
-            Teachers
+            <a href="teachers.html">Teachers</a>
         </li>
 
         <li>
-            Courses
+            <a href="courses.html">Courses</a>
         </li>
 
         <li>
-            Question Bank
+            <a href="batches.html">Batches</a>
         </li>
 
         <li>
-            Exams
+             <a href="questions.html">Question Bank</a>
         </li>
 
         <li>
-            Assign Exams
+            <a href="#">Exams</a>
         </li>
 
         <li>
-            Results
+            <a href="Assignexams.html">Assign Exams</a>
         </li>
 
         <li>
-            Settings
+            <a href="#">Results</a>
         </li>
 
         <li>
-            Logout
+            <a href="#">Settings</a>
         </li>
 
     </ul>
@@ -99,19 +97,26 @@
 
         </div>
 
-        <div class="admin-profile">
-
-            <div class="admin-avatar">
-                M
+        <div class="admin-profile-dropdown">
+        <!-- PROFILE BUTTON -->
+            <div class="admin-profile-btn" id="profileToggle">
+                <div class="admin-avatar">
+                    M
+                </div>
+                <div>
+                    <h4>Administrator</h4>
+                    <small>Super Admin</small>
+                </div>
             </div>
-
-            <div>
-
-                <h4>Administrator</h4>
-                <small>Super Admin</small>
-
+            <!-- DROPDOWN -->
+            <div class="admin-dropdown-menu" id="profileMenu">
+                <a href="#">
+                    Settings
+                </a>
+                <a href="#">
+                    Logout
+                </a>
             </div>
-
         </div>
 
     </div>

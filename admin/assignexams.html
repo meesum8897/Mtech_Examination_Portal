@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Assign Exams</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/style.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+</head>
+
+<body class="admin-body">
+
+<!-- SIDEBAR -->
+
+<div class="admin-sidebar">
+
+    <div class="admin-logo">
+
+        <img src="https://mtechinstitute.com/wp-content/uploads/2025/03/weblogoblue.png">
+
+    </div>
+
+    <ul class="admin-menu">
+
+        <li>
+            <a href="index.html">Dashboard</a>
+        </li>
+
+        <li>
+            <a href="students.html">Students</a>
+        </li>
+
+        <li>
+            <a href="teachers.html">Teachers</a>
+        </li>
+
+        <li>
+            <a href="courses.html">Courses</a>
+        </li>
+
+        <li>
+            <a href="batches.html">Batches</a>
+        </li>
+
+        <li>
+            <a href="questions.html">Question Bank</a>
+        </li>
+
+        <li>
+            <a href="#">Exams</a>
+        </li>
+
+        <li class="active">
+            <a href="Assignexams.html">Assign Exams</a>
+        </li>
+
+        <li>
+            <a href="#">Results</a>
+        </li>
+
+        <li>
+            <a href="#">Settings</a>
+        </li>
+
+    </ul>
+
+</div>
+
+<!-- MAIN -->
+
+<div class="admin-main">
+
+    <!-- TOPBAR -->
+
+    <div class="admin-topbar">
+
+        <div>
+
+            <h2>Assign Exams</h2>
+
+            <p>
+                Schedule and assign exams to students and batches
+            </p>
+
+        </div>
+
+        <div class="admin-profile-dropdown">
+
+            <div class="admin-profile-btn" id="profileToggle">
+
+                <div class="admin-avatar">
+                    M
+                </div>
+
+                <div>
+
+                    <h4>Administrator</h4>
+                    <small>Super Admin</small>
+
+                </div>
+
+            </div>
+
+            <div class="admin-dropdown-menu" id="profileMenu">
+
+                <a href="#">Settings</a>
+                <a href="#">Logout</a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- PAGE HEADER -->
+
+    <div class="page-header">
+
+        <div>
+
+            <h2>Exam Assignments</h2>
+
+            <p>
+                Manage exam schedules and student assignments
+            </p>
+
+        </div>
+
+        <button
+        class="btn btn-primary"
+        id="openAssignModal">
+
+            + Assign New Exam
+
+        </button>
+
+    </div>
+
+    <!-- STATISTICS -->
+
+    <div class="stats-grid">
+
+        <div class="stat-card">
+
+            <h4>Total Assignments</h4>
+            <h2>320</h2>
+
+        </div>
+
+        <div class="stat-card">
+
+            <h4>Active Assignments</h4>
+            <h2>24</h2>
+
+        </div>
+
+        <div class="stat-card">
+
+            <h4>Upcoming Exams</h4>
+            <h2>18</h2>
+
+        </div>
+
+        <div class="stat-card">
+
+            <h4>Completed Exams</h4>
+            <h2>278</h2>
+
+        </div>
+
+    </div>
+
+    <!-- FILTERS -->
+
+    <div class="filter-card">
+
+        <div class="filter-grid">
+
+            <input
+            type="text"
+            class="form-control"
+            placeholder="Search Assignment">
+
+            <select class="form-control">
+
+                <option>All Exams</option>
+
+                <option>MS Office Monthly Test</option>
+                <option>Web Designing Final</option>
+
+            </select>
+
+            <select class="form-control">
+
+                <option>All Batches</option>
+
+                <option>MSO-MOR-01</option>
+                <option>WEB-EVE-01</option>
+
+            </select>
+
+            <select class="form-control">
+
+                <option>All Status</option>
+
+                <option>Scheduled</option>
+                <option>Active</option>
+                <option>Completed</option>
+                <option>Expired</option>
+
+            </select>
+
+        </div>
+
+        <div class="filter-actions">
+
+            <button class="btn btn-primary">
+
+                Search
+
+            </button>
+
+            <button class="btn btn-dark">
+
+                Reset
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- TABLE -->
+
+    <div class="table-card">
+
+        <div class="table-card-header">
+
+            <h3>
+                Exam Assignments
+            </h3>
+
+        </div>
+
+        <div class="table-responsive">
+
+            <table class="custom-table">
+
+                <thead>
+
+                    <tr>
+
+                        <th>ID</th>
+                        <th>Exam</th>
+                        <th>Batch</th>
+                        <th>Students</th>
+                        <th>Date</th>
+                        <th>Start Time</th>
+                        <th>End Time</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <tr>
+
+                        <td>ASG001</td>
+
+                        <td>
+                            MS Office Monthly Test
+                        </td>
+
+                        <td>
+                            MSO-MOR-01
+                        </td>
+
+                        <td>
+                            25 Students
+                        </td>
+
+                        <td>
+                            20-Jun-2026
+                        </td>
+
+                        <td>
+                            10:00 AM
+                        </td>
+
+                        <td>
+                            10:45 AM
+                        </td>
+
+                        <td>
+
+                            <span class="badge-success">
+
+                                Active
+
+                            </span>
+
+                        </td>
+
+                        <td>
+
+                            <div class="table-actions">
+
+                                <button class="action-btn view-btn">
+                                    View
+                                </button>
+
+                                <button class="action-btn student-btn">
+                                    Students
+                                </button>
+
+                                <button class="action-btn edit-btn">
+                                    Edit
+                                </button>
+
+                                <button class="action-btn delete-btn">
+                                    Delete
+                                </button>
+
+                            </div>
+
+                        </td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>ASG002</td>
+
+                        <td>
+                            Web Designing Final
+                        </td>
+
+                        <td>
+                            WEB-EVE-01
+                        </td>
+
+                        <td>
+                            18 Students
+                        </td>
+
+                        <td>
+                            25-Jun-2026
+                        </td>
+
+                        <td>
+                            09:00 AM
+                        </td>
+
+                        <td>
+                            10:00 AM
+                        </td>
+
+                        <td>
+
+                            <span class="badge-warning">
+
+                                Scheduled
+
+                            </span>
+
+                        </td>
+
+                        <td>
+
+                            <div class="table-actions">
+
+                                <button class="action-btn view-btn">
+                                    View
+                                </button>
+
+                                <button class="action-btn student-btn">
+                                    Students
+                                </button>
+
+                                <button class="action-btn edit-btn">
+                                    Edit
+                                </button>
+
+                                <button class="action-btn delete-btn">
+                                    Delete
+                                </button>
+
+                            </div>
+
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <!-- PAGINATION -->
+
+        <div class="pagination">
+
+            <button>
+                Previous
+            </button>
+
+            <button class="active">
+                1
+            </button>
+
+            <button>
+                2
+            </button>
+
+            <button>
+                3
+            </button>
+
+            <button>
+                Next
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ASSIGN EXAM MODAL -->
+
+<div class="modal" id="assignModal">
+
+    <div class="modal-box" style="max-width:850px;">
+
+        <div class="modal-header">
+
+            <h3>
+                Assign New Exam
+            </h3>
+
+            <button class="close-modal">
+                ×
+            </button>
+
+        </div>
+
+        <div class="modal-body">
+
+            <div class="form-grid">
+
+                <select class="form-control">
+
+                    <option>Select Exam</option>
+
+                    <option>MS Office Monthly Test</option>
+                    <option>Web Designing Final</option>
+
+                </select>
+
+                <select class="form-control">
+
+                    <option>Select Batch</option>
+
+                    <option>MSO-MOR-01</option>
+                    <option>WEB-EVE-01</option>
+
+                </select>
+
+                <input
+                type="date"
+                class="form-control">
+
+                <input
+                type="time"
+                class="form-control">
+
+                <input
+                type="time"
+                class="form-control">
+
+                <select class="form-control">
+
+                    <option>Scheduled</option>
+                    <option>Active</option>
+                    <option>Inactive</option>
+
+                </select>
+
+            </div>
+
+            <br>
+
+            <div class="checkbox-group">
+
+                <label>
+
+                    <input type="checkbox">
+
+                    Allow Resume
+
+                </label>
+
+                <label>
+
+                    <input type="checkbox">
+
+                    Shuffle Questions
+
+                </label>
+
+                <label>
+
+                    <input type="checkbox">
+
+                    Shuffle Options
+
+                </label>
+
+                <label>
+
+                    <input type="checkbox">
+
+                    Auto Submit
+
+                </label>
+
+            </div>
+
+        </div>
+
+        <div class="modal-footer">
+
+            <button
+            class="btn btn-dark close-modal">
+
+                Cancel
+
+            </button>
+
+            <button
+            class="btn btn-primary"
+            id="saveAssignmentBtn">
+
+                Assign Exam
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- VIEW MODAL -->
+
+<div class="modal" id="viewAssignmentModal">
+
+    <div class="modal-box">
+
+        <div class="modal-header">
+
+            <h3>
+                Assignment Details
+            </h3>
+
+            <button class="close-modal">
+                ×
+            </button>
+
+        </div>
+
+        <div class="modal-body">
+
+            <div class="details-grid">
+
+                <div>
+                    <strong>Assignment ID</strong>
+                    <p>ASG001</p>
+                </div>
+
+                <div>
+                    <strong>Exam</strong>
+                    <p>MS Office Monthly Test</p>
+                </div>
+
+                <div>
+                    <strong>Batch</strong>
+                    <p>MSO-MOR-01</p>
+                </div>
+
+                <div>
+                    <strong>Students</strong>
+                    <p>25</p>
+                </div>
+
+                <div>
+                    <strong>Date</strong>
+                    <p>20-Jun-2026</p>
+                </div>
+
+                <div>
+                    <strong>Status</strong>
+                    <p>Active</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- STUDENTS MODAL -->
+
+<div class="modal" id="studentsModal">
+
+    <div class="modal-box" style="max-width:900px;">
+
+        <div class="modal-header">
+
+            <h3>
+                Assigned Students
+            </h3>
+
+            <button class="close-modal">
+                ×
+            </button>
+
+        </div>
+
+        <div class="modal-body">
+
+            <table class="custom-table">
+
+                <thead>
+
+                    <tr>
+
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Status</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <tr>
+
+                        <td>ST001</td>
+                        <td>Muhammad Ali</td>
+                        <td>Assigned</td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>ST002</td>
+                        <td>Hassan Raza</td>
+                        <td>Appeared</td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>ST003</td>
+                        <td>Abbas Haider</td>
+                        <td>Completed</td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="js/assign-exams.js"></script>
+
+</body>
+</html>

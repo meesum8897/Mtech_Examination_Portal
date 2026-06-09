@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Teachers Management</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/style.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+</head>
+
+<body class="admin-body">
+
+<!-- SIDEBAR -->
+
+<div class="admin-sidebar">
+
+    <div class="admin-logo">
+
+        <img src="https://mtechinstitute.com/wp-content/uploads/2025/03/weblogoblue.png">
+
+    </div>
+
+    <ul class="admin-menu">
+
+        <li>
+            <a href="index.html">Dashboard</a>
+        </li>
+
+        <li>
+            <a href="students.html">Students</a>
+        </li>
+
+        <li class="active">
+            <a href="teachers.html">Teachers</a>
+        </li>
+
+        <li>
+            <a href="courses.html">Courses</a>
+        </li>
+
+        <li>
+            <a href="batches.html">Batches</a>
+        </li>
+
+        <li>
+             <a href="questions.html">Question Bank</a>
+        </li>
+
+        <li>
+            <a href="#">Exams</a>
+        </li>
+
+        <li>
+            <a href="Assignexams.html">Assign Exams</a>
+        </li>
+
+        <li>
+            <a href="#">Results</a>
+        </li>
+
+        <li>
+            <a href="#">Settings</a>
+        </li>
+
+    </ul>
+
+</div>
+
+<!-- MAIN -->
+
+<div class="admin-main">
+
+    <!-- TOPBAR -->
+
+    <div class="admin-topbar">
+
+        <div>
+
+            <h2>Teachers Management</h2>
+
+            <p>
+                Manage institute teachers and batch assignments
+            </p>
+
+        </div>
+
+        <div class="admin-profile-dropdown">
+
+            <div class="admin-profile-btn" id="profileToggle">
+
+                <div class="admin-avatar">
+                    M
+                </div>
+
+                <div>
+
+                    <h4>Administrator</h4>
+                    <small>Super Admin</small>
+
+                </div>
+
+            </div>
+
+            <div class="admin-dropdown-menu" id="profileMenu">
+
+                <a href="#">Settings</a>
+                <a href="#">Logout</a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- PAGE HEADER -->
+        <!-- STATISTICS -->
+
+    <div class="stats-grid">
+
+        <div class="stat-card">
+
+            <h4>Total Teachers</h4>
+            <h2>45</h2>
+
+        </div>
+
+        <div class="stat-card">
+
+            <h4>Active Teachers</h4>
+            <h2>38</h2>
+
+        </div>
+
+        <div class="stat-card">
+
+            <h4>Assigned Batches</h4>
+            <h2>72</h2>
+
+        </div>
+
+        <div class="stat-card">
+
+            <h4>Available Teachers</h4>
+            <h2>7</h2>
+
+        </div>
+
+    </div>
+    
+    <div class="page-header">
+        
+        <div>
+
+            <h2>Teachers</h2>
+
+            <p>
+                Add, edit and manage teachers
+            </p>
+
+        </div>
+
+        <button class="btn btn-primary" id="openTeacherModal">
+            + Add Teacher
+        </button>
+
+    </div>
+    
+
+    <!-- FILTER CARD -->
+
+    <div class="filter-card">
+
+        <div class="filter-grid">
+
+            <input
+                type="text"
+                class="form-control"
+                placeholder="Search Teacher Name / ID / Mobile">
+
+            <select class="form-control">
+
+                <option>All Courses</option>
+                <option>MS Office</option>
+                <option>Web Designing</option>
+                <option>Graphic Designing</option>
+
+            </select>
+
+            <select class="form-control">
+
+                <option>All Batches</option>
+                <option>MSO-MOR-01</option>
+                <option>WEB-MOR-01</option>
+
+            </select>
+
+            <select class="form-control">
+
+                <option>All Status</option>
+                <option>Active</option>
+                <option>Inactive</option>
+
+            </select>
+
+        </div>
+
+        <div class="filter-actions">
+
+            <button class="btn btn-primary">
+                Search
+            </button>
+
+            <button class="btn btn-dark">
+                Reset
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- TABLE CARD -->
+
+    <div class="table-card">
+
+        <div class="table-card-header">
+
+            <h3>Teachers List</h3>
+
+        </div>
+
+        <div class="table-responsive">
+
+            <table class="admin-table">
+
+                <thead>
+
+                    <tr>
+
+                        <th>ID</th>
+                        <th>Teacher Name</th>
+                        <th>Mobile</th>
+                        <th>Qualification</th>
+                        <th>Courses</th>
+                        <th>Batches</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <tr>
+
+                        <td>T001</td>
+                        <td>Ali Raza</td>
+                        <td>03001234567</td>
+                        <td>BSCS</td>
+                        <td>3 Courses</td>
+                        <td>4 Batches</td>
+
+                        <td>
+                            <span class="badge-success">
+                                Active
+                            </span>
+                        </td>
+
+                        <td>
+
+                            <div class="table-actions">
+
+                                <button class="action-btn view-btn">
+                                    View
+                                </button>
+
+                                <button class="action-btn edit-btn">
+                                    Edit
+                                </button>
+
+                                <button class="action-btn reset-btn">
+                                    Reset
+                                </button>
+
+                                <button class="action-btn delete-btn">
+                                    Delete
+                                </button>
+
+                            </div>
+
+                        </td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>T002</td>
+                        <td>Hassan Raza</td>
+                        <td>03111234567</td>
+                        <td>MCS</td>
+                        <td>2 Courses</td>
+                        <td>2 Batches</td>
+
+                        <td>
+                            <span class="badge-danger">
+                                Inactive
+                            </span>
+                        </td>
+
+                        <td>
+
+                            <div class="table-actions">
+
+                                <button class="action-btn view-btn">
+                                    View
+                                </button>
+
+                                <button class="action-btn edit-btn">
+                                    Edit
+                                </button>
+
+                                <button class="action-btn reset-btn">
+                                    Reset
+                                </button>
+
+                                <button class="action-btn delete-btn">
+                                    Delete
+                                </button>
+
+                            </div>
+
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <!-- PAGINATION -->
+
+        <div class="pagination">
+
+            <button>Previous</button>
+
+            <button class="active">1</button>
+            <button>2</button>
+            <button>3</button>
+
+            <button>Next</button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ADD TEACHER MODAL -->
+
+<div class="modal" id="teacherModal">
+
+    <div class="modal-box">
+
+        <div class="modal-header">
+
+            <h3>Add Teacher</h3>
+
+            <button class="close-modal">
+                ×
+            </button>
+
+        </div>
+
+        <div class="modal-body">
+
+            <div class="form-grid">
+
+                <input class="form-control" placeholder="Teacher ID">
+                <input class="form-control" placeholder="Full Name">
+
+                <input class="form-control" placeholder="Father Name">
+                <input class="form-control" placeholder="CNIC">
+
+                <input class="form-control" placeholder="Mobile">
+                <input class="form-control" placeholder="Email">
+
+                <input class="form-control" placeholder="Qualification">
+                <input class="form-control" placeholder="Designation">
+
+                <input class="form-control" placeholder="Experience">
+
+                <input
+                    type="date"
+                    class="form-control">
+
+            </div>
+
+        </div>
+
+        <div class="modal-footer">
+
+            <button class="btn btn-dark">
+                Cancel
+            </button>
+
+            <button class="btn btn-primary">
+                Save Teacher
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="js/script.js"></script>
+
+</body>
+</html>

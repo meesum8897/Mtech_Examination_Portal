@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Courses Management</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/style.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script src="js/script.js"></script>
+
+</head>
+
+<body class="admin-body">
+
+<!-- =========================
+SIDEBAR
+========================= -->
+
+<div class="admin-sidebar">
+
+    <div class="admin-logo">
+
+        <img src="https://mtechinstitute.com/wp-content/uploads/2025/03/weblogoblue.png">
+
+    </div>
+
+    <ul class="admin-menu">
+
+        <li>
+            <a href="index.html">Dashboard</a>
+        </li>
+
+        <li>
+            <a href="students.html">Students</a>
+        </li>
+
+        <li>
+            <a href="teachers.html">Teachers</a>
+        </li>
+
+        <li class="active">
+            <a href="courses.html">Courses</a>
+        </li>
+
+        <li>
+            <a href="batches.html">Batches</a>
+        </li>
+
+        <li>
+             <a href="questions.html">Question Bank</a>
+        </li>
+
+        <li>
+            <a href="#">Exams</a>
+        </li>
+
+        <li>
+            <a href="Assignexams.html">Assign Exams</a>
+        </li>
+
+        <li>
+            <a href="#">Results</a>
+        </li>
+
+        <li>
+            <a href="#">Settings</a>
+        </li>
+
+    </ul>
+
+</div>
+
+<!-- =========================
+MAIN
+========================= -->
+
+<div class="admin-main">
+
+    <!-- TOPBAR -->
+
+    <div class="admin-topbar">
+
+        <div>
+
+            <h2>Courses Management</h2>
+
+            <p>
+                Manage institute courses and academic programs
+            </p>
+
+        </div>
+
+        <div class="admin-profile-dropdown">
+
+            <div class="admin-profile-btn" id="profileToggle">
+
+                <div class="admin-avatar">
+                    M
+                </div>
+
+                <div>
+
+                    <h4>Administrator</h4>
+                    <small>Super Admin</small>
+
+                </div>
+
+            </div>
+
+            <div class="admin-dropdown-menu" id="profileMenu">
+
+                <a href="#">Settings</a>
+                <a href="#">Logout</a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- PAGE HEADER -->
+
+    <div class="page-header">
+
+        <div>
+
+            <h2>Courses</h2>
+
+            <p>
+                Create and manage institute courses
+            </p>
+
+        </div>
+
+        <button class="btn btn-primary" id="openCourseModal">
+
+            + Add Course
+
+        </button>
+
+    </div>
+
+    <!-- =========================
+    STATISTICS
+    ========================= -->
+
+    <div class="stats-grid">
+
+        <div class="stat-card">
+
+            <h4>Total Courses</h4>
+            <h2>18</h2>
+
+        </div>
+
+        <div class="stat-card">
+
+            <h4>Active Courses</h4>
+            <h2>15</h2>
+
+        </div>
+
+        <div class="stat-card">
+
+            <h4>Short Courses</h4>
+            <h2>8</h2>
+
+        </div>
+
+        <div class="stat-card">
+
+            <h4>Diploma Courses</h4>
+            <h2>10</h2>
+
+        </div>
+
+    </div>
+
+    <!-- =========================
+    FILTERS
+    ========================= -->
+
+    <div class="filter-card">
+
+        <div class="filter-grid">
+
+            <input
+                type="text"
+                class="form-control"
+                placeholder="Search Course Name / Code">
+
+            <select class="form-control">
+
+                <option>All Types</option>
+                <option>Short Course</option>
+                <option>Diploma</option>
+                <option>Certification</option>
+
+            </select>
+
+            <select class="form-control">
+
+                <option>All Status</option>
+                <option>Active</option>
+                <option>Inactive</option>
+
+            </select>
+
+            <select class="form-control">
+
+                <option>All Durations</option>
+                <option>1 Month</option>
+                <option>3 Months</option>
+                <option>6 Months</option>
+                <option>1 Year</option>
+
+            </select>
+
+        </div>
+
+        <div class="filter-actions">
+
+            <button class="btn btn-primary">
+                Search
+            </button>
+
+            <button class="btn btn-dark">
+                Reset
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- =========================
+    TABLE
+    ========================= -->
+
+    <div class="table-card">
+
+        <div class="table-card-header">
+
+            <h3>Courses List</h3>
+
+        </div>
+
+        <div class="table-responsive">
+
+            <table class="custom-table">
+
+                <thead>
+
+                    <tr>
+
+                        <th>Code</th>
+                        <th>Course Name</th>
+                        <th>Duration</th>
+                        <th>Type</th>
+                        <th>Students</th>
+                        <th>Teachers</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <tr>
+
+                        <td>MSO001</td>
+                        <td>MS Office</td>
+                        <td>3 Months</td>
+                        <td>Certification</td>
+                        <td>120</td>
+                        <td>5</td>
+
+                        <td>
+                            <span class="badge-success">
+                                Active
+                            </span>
+                        </td>
+
+                        <td>
+
+                            <div class="table-actions">
+
+                                <button class="action-btn view-btn">
+                                    View
+                                </button>
+
+                                <button class="action-btn edit-btn">
+                                    Edit
+                                </button>
+
+                                <button class="action-btn delete-btn">
+                                    Delete
+                                </button>
+
+                            </div>
+
+                        </td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>WEB001</td>
+                        <td>Web Designing</td>
+                        <td>6 Months</td>
+                        <td>Diploma</td>
+                        <td>85</td>
+                        <td>3</td>
+
+                        <td>
+                            <span class="badge-success">
+                                Active
+                            </span>
+                        </td>
+
+                        <td>
+
+                            <div class="table-actions">
+
+                                <button class="action-btn view-btn">
+                                    View
+                                </button>
+
+                                <button class="action-btn edit-btn">
+                                    Edit
+                                </button>
+
+                                <button class="action-btn delete-btn">
+                                    Delete
+                                </button>
+
+                            </div>
+
+                        </td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>GD001</td>
+                        <td>Graphic Designing</td>
+                        <td>6 Months</td>
+                        <td>Diploma</td>
+                        <td>60</td>
+                        <td>2</td>
+
+                        <td>
+                            <span class="badge-danger">
+                                Inactive
+                            </span>
+                        </td>
+
+                        <td>
+
+                            <div class="table-actions">
+
+                                <button class="action-btn view-btn">
+                                    View
+                                </button>
+
+                                <button class="action-btn edit-btn">
+                                    Edit
+                                </button>
+
+                                <button class="action-btn delete-btn">
+                                    Delete
+                                </button>
+
+                            </div>
+
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <!-- PAGINATION -->
+
+        <div class="pagination">
+
+            <button>Previous</button>
+
+            <button class="active">1</button>
+            <button>2</button>
+            <button>3</button>
+
+            <button>Next</button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- =========================
+ADD COURSE MODAL
+========================= -->
+
+<div class="modal" id="courseModal">
+
+    <div class="modal-box">
+
+        <div class="modal-header">
+
+            <h3>Add Course</h3>
+
+            <button class="close-modal">
+                ×
+            </button>
+
+        </div>
+
+        <div class="modal-body">
+
+            <div class="form-grid">
+
+                <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Course Code">
+
+                <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Course Name">
+
+                <select class="form-control">
+
+                    <option>Select Duration</option>
+
+                    <option>1 Month</option>
+                    <option>3 Months</option>
+                    <option>6 Months</option>
+                    <option>1 Year</option>
+
+                </select>
+
+                <select class="form-control">
+
+                    <option>Select Type</option>
+
+                    <option>Short Course</option>
+                    <option>Diploma</option>
+                    <option>Certification</option>
+
+                </select>
+
+            </div>
+
+            <br>
+
+            <textarea
+                class="form-control"
+                style="height:120px; padding-top:15px;"
+                placeholder="Course Description"></textarea>
+
+            <br>
+
+            <select class="form-control">
+
+                <option>Active</option>
+                <option>Inactive</option>
+
+            </select>
+
+        </div>
+
+        <div class="modal-footer">
+
+            <button class="btn btn-dark close-modal">
+
+                Cancel
+
+            </button>
+
+            <button class="btn btn-primary">
+
+                Save Course
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- =========================
+VIEW COURSE MODAL
+========================= -->
+
+<div class="modal" id="viewCourseModal">
+
+    <div class="modal-box" style="max-width:700px;">
+
+        <div class="modal-header">
+
+            <h3>Course Information</h3>
+
+            <button class="close-modal">
+                ×
+            </button>
+
+        </div>
+
+        <div class="modal-body">
+
+            <div class="form-grid">
+
+                <div>
+
+                    <label>Course Code</label>
+                    <p><strong>MSO001</strong></p>
+
+                </div>
+
+                <div>
+
+                    <label>Course Name</label>
+                    <p><strong>MS Office</strong></p>
+
+                </div>
+
+                <div>
+
+                    <label>Duration</label>
+                    <p><strong>3 Months</strong></p>
+
+                </div>
+
+                <div>
+
+                    <label>Type</label>
+                    <p><strong>Certification</strong></p>
+
+                </div>
+
+                <div>
+
+                    <label>Teachers</label>
+                    <p><strong>5</strong></p>
+
+                </div>
+
+                <div>
+
+                    <label>Students</label>
+                    <p><strong>120</strong></p>
+
+                </div>
+
+                <div>
+
+                    <label>Status</label>
+                    <p><strong>Active</strong></p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
