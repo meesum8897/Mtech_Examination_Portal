@@ -1304,3 +1304,224 @@ body{
         padding:15px;
     }
 }
+
+/* ==========================================
+   STUDENT SECTION
+========================================== */
+
+#studentSelectionSection {
+    display: none;
+    margin-top: 20px;
+}
+
+.student-actions {
+    margin-bottom: 15px;
+}
+
+.student-actions label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* ==========================================
+   STUDENT LIST
+========================================== */
+
+.student-list-box {
+    border: 1px solid #dcdcdc;
+    border-radius: 8px;
+    max-height: 250px;
+    overflow-y: auto;
+    background: #fff;
+}
+
+.student-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 15px;
+    border-bottom: 1px solid #f1f1f1;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.student-item:last-child {
+    border-bottom: none;
+}
+
+.student-item:hover {
+    background: #f8f8f8;
+}
+
+.student-item input[type="checkbox"] {
+    cursor: pointer;
+}
+#studentSelectionSection{
+    display:none;
+}
+
+.student-toolbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:12px;
+}
+
+.student-list-box{
+    border:1px solid #ddd;
+    border-radius:8px;
+    max-height:250px;
+    overflow-y:auto;
+    background:#fff;
+}
+
+.student-row{
+    display:grid;
+    grid-template-columns:40px 120px 1fr;
+    align-items:center;
+    gap:10px;
+    padding:12px 15px;
+    border-bottom:1px solid #eee;
+    cursor:pointer;
+    margin:0;
+}
+
+.student-row:last-child{
+    border-bottom:none;
+}
+
+.student-row:hover{
+    background:#f8f8f8;
+}
+
+.student-row.selected{
+    background:#fff9db;
+    border-left:4px solid #ffcc00;
+}
+
+.student-id{
+    color:#777;
+    font-size:13px;
+    font-weight:600;
+}
+
+.student-name{
+    font-weight:600;
+}
+
+/* ==========================================
+   SUMMARY CARD
+========================================== */
+
+.summary-card {
+    background: #fafafa;
+    border: 1px solid #e5e5e5;
+    border-radius: 10px;
+    padding: 18px;
+    margin-top: 20px;
+}
+
+.summary-card h4 {
+    margin-bottom: 15px;
+}
+
+.summary-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.summary-grid span {
+    display: block;
+    color: #888;
+    font-size: 13px;
+}
+
+.summary-grid strong {
+    display: block;
+    margin-top: 5px;
+    color: #222;
+}
+
+/* ==========================================
+   CHECKBOX GROUP
+========================================== */
+
+.checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 15px;
+}
+
+.checkbox-group label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+}
+
+/* ==========================================
+   LARGE MODAL
+========================================== */
+
+.large-modal {
+    width: 900px;
+    max-width: 95%;
+}
+
+.modal-body {
+    max-height: 75vh;
+    overflow-y: auto;
+}
+
+/* ==========================================
+   FORM SPACING
+========================================== */
+
+.form-section {
+    margin-top: 25px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+/* ==========================================
+   FORM GRID
+========================================== */
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+/* ==========================================
+   MOBILE
+========================================== */
+
+@media (max-width: 768px) {
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .summary-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .large-modal {
+        width: 95%;
+    }
+
+}
