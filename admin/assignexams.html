@@ -52,7 +52,7 @@
         </li>
 
         <li>
-            <a href="questions.html">Question Bank</a>
+            <a href="questionbank.html">Question Bank</a>
         </li>
 
         <li>
@@ -694,7 +694,152 @@
 
 </div>
 
-<script src="js/assign-exams.js"></script>
+<script>
+    $(document).ready(function () {
+
+    /* ==========================
+       PROFILE DROPDOWN
+    ========================== */
+
+    $("#profileToggle").click(function (e) {
+
+        e.stopPropagation();
+
+        $("#profileMenu").toggleClass("show");
+
+    });
+
+    $(document).click(function () {
+
+        $("#profileMenu").removeClass("show");
+
+    });
+
+    /* ==========================
+       OPEN ASSIGN EXAM MODAL
+    ========================== */
+
+    $("#openAssignModal").click(function () {
+
+        $("#assignModal").css("display", "flex");
+
+    });
+
+    /* ==========================
+       VIEW ASSIGNMENT
+    ========================== */
+
+    $(".view-btn").click(function () {
+
+        $("#viewAssignmentModal").css("display", "flex");
+
+    });
+
+    /* ==========================
+       STUDENTS MODAL
+    ========================== */
+
+    $(".student-btn").click(function () {
+
+        $("#studentsModal").css("display", "flex");
+
+    });
+
+    /* ==========================
+       EDIT ASSIGNMENT
+    ========================== */
+
+    $(".edit-btn").click(function () {
+
+        $("#assignModal").css("display", "flex");
+
+    });
+
+    /* ==========================
+       DELETE ASSIGNMENT
+    ========================== */
+
+    $(".delete-btn").click(function () {
+
+        let row = $(this).closest("tr");
+
+        if (confirm("Are you sure you want to delete this assignment?")) {
+
+            row.fadeOut(300);
+
+        }
+
+    });
+
+    /* ==========================
+       CLOSE MODALS
+    ========================== */
+
+    $(".close-modal").click(function () {
+
+        $(".modal").hide();
+
+    });
+
+    /* ==========================
+       CLICK OUTSIDE MODAL
+    ========================== */
+
+    $(".modal").click(function (e) {
+
+        if ($(e.target).hasClass("modal")) {
+
+            $(this).hide();
+
+        }
+
+    });
+
+    /* ==========================
+       SAVE ASSIGNMENT
+    ========================== */
+
+    $("#saveAssignmentBtn").click(function () {
+
+        alert("Exam Assigned Successfully");
+
+        $("#assignModal").hide();
+
+    });
+
+    /* ==========================
+       PAGINATION DEMO
+    ========================== */
+
+    $(".pagination button").click(function () {
+
+        $(".pagination button").removeClass("active");
+
+        $(this).addClass("active");
+
+    });
+
+    /* ==========================
+       FILTER DEMO
+    ========================== */
+
+    $(".filter-actions .btn-primary").click(function () {
+
+        alert("Search functionality will be connected with database.");
+
+    });
+
+    $(".filter-actions .btn-dark").click(function () {
+
+        $(".filter-card input").val("");
+
+        $(".filter-card select").prop("selectedIndex", 0);
+
+    });
+
+});
+</script>
 
 </body>
 </html>
+

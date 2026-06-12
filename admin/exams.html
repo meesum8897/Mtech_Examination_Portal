@@ -1,0 +1,1811 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Assign Exams</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/style.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+</head>
+
+<body class="admin-body">
+
+<!-- SIDEBAR -->
+
+<div class="admin-sidebar">
+
+    <div class="admin-logo">
+
+        <img src="https://mtechinstitute.com/wp-content/uploads/2025/03/weblogoblue.png">
+
+    </div>
+
+    <ul class="admin-menu">
+
+        <li>
+            <a href="index.html">Dashboard</a>
+        </li>
+
+        <li>
+            <a href="students.html">Students</a>
+        </li>
+
+        <li>
+            <a href="teachers.html">Teachers</a>
+        </li>
+
+        <li>
+            <a href="courses.html">Courses</a>
+        </li>
+
+        <li>
+            <a href="batches.html">Batches</a>
+        </li>
+
+        <li>
+            <a href="question-bank.html">Question Bank</a>
+        </li>
+
+        <li>
+            <a href="exams.html">Exams</a>
+        </li>
+
+        <li class="active">
+            <a href="assign-exams.html">Assign Exams</a>
+        </li>
+
+        <li>
+            <a href="results.html">Results</a>
+        </li>
+
+        <li>
+            <a href="#">Settings</a>
+        </li>
+
+        <li>
+            <a href="#">Logout</a>
+        </li>
+
+    </ul>
+
+</div>
+
+<!-- MAIN -->
+
+<div class="admin-main">
+
+    <!-- TOPBAR -->
+
+    <div class="admin-topbar">
+
+        <div>
+
+            <h2>
+                Assign Exams
+            </h2>
+
+            <p>
+                Schedule and assign exams to batches and students
+            </p>
+
+        </div>
+
+        <div class="admin-profile-dropdown">
+
+            <div class="admin-profile-btn" id="profileToggle">
+
+                <div class="admin-avatar">
+                    M
+                </div>
+
+                <div>
+
+                    <h4>
+                        Administrator
+                    </h4>
+
+                    <small>
+                        Super Admin
+                    </small>
+
+                </div>
+
+            </div>
+
+            <div class="admin-dropdown-menu" id="profileMenu">
+
+                <a href="#">
+                    Settings
+                </a>
+
+                <a href="#">
+                    Logout
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- PAGE HEADER -->
+
+    <div class="page-header">
+
+        <div>
+
+            <h2>
+                Exam Assignments
+            </h2>
+
+            <p>
+                Manage exam schedules and student assignments
+            </p>
+
+        </div>
+
+        <div class="header-actions">
+
+            <button
+            class="btn btn-primary"
+            id="openAssignExamModal">
+
+                + Assign Exam
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- STATS -->
+
+    <div class="stats-grid">
+
+        <div class="stat-card">
+
+            <h4>
+                Total Assignments
+            </h4>
+
+            <h2>
+                248
+            </h2>
+
+        </div>
+
+        <div class="stat-card">
+
+            <h4>
+                Active Exams
+            </h4>
+
+            <h2>
+                32
+            </h2>
+
+        </div>
+
+        <div class="stat-card">
+
+            <h4>
+                Scheduled Exams
+            </h4>
+
+            <h2>
+                15
+            </h2>
+
+        </div>
+
+        <div class="stat-card">
+
+            <h4>
+                Completed Exams
+            </h4>
+
+            <h2>
+                201
+            </h2>
+
+        </div>
+
+    </div>
+
+    <!-- FILTERS -->
+
+    <div class="filter-card">
+
+        <div class="filter-grid">
+
+            <input
+            type="text"
+            class="form-control"
+            placeholder="Search Assignment">
+
+            <select class="form-control">
+
+                <option>
+                    All Exams
+                </option>
+
+                <option>
+                    MS Excel Monthly Test
+                </option>
+
+                <option>
+                    HTML Final Exam
+                </option>
+
+                <option>
+                    Graphic Design Quiz
+                </option>
+
+            </select>
+
+            <select class="form-control">
+
+                <option>
+                    All Batches
+                </option>
+
+                <option>
+                    Batch A
+                </option>
+
+                <option>
+                    Batch B
+                </option>
+
+                <option>
+                    Batch C
+                </option>
+
+            </select>
+
+            <select class="form-control">
+
+                <option>
+                    All Status
+                </option>
+
+                <option>
+                    Scheduled
+                </option>
+
+                <option>
+                    Active
+                </option>
+
+                <option>
+                    Completed
+                </option>
+
+                <option>
+                    Cancelled
+                </option>
+
+            </select>
+
+        </div>
+
+        <div class="filter-actions">
+
+            <button class="btn btn-primary">
+
+                Search
+
+            </button>
+
+            <button class="btn btn-dark">
+
+                Reset
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- TABLE -->
+
+    <div class="table-card">
+
+        <div class="table-card-header">
+
+            <h3>
+                Exam Assignments
+            </h3>
+
+        </div>
+
+        <div class="table-responsive">
+
+            <table class="custom-table">
+
+                <thead>
+
+                    <tr>
+
+                        <th>ID</th>
+
+                        <th>Exam Name</th>
+
+                        <th>Batch</th>
+
+                        <th>Students</th>
+
+                        <th>Start Date</th>
+
+                        <th>End Date</th>
+
+                        <th>Status</th>
+
+                        <th>Actions</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <tr>
+
+                        <td>AS001</td>
+
+                        <td>
+                            MS Excel Monthly Test
+                        </td>
+
+                        <td>
+                            Batch A
+                        </td>
+
+                        <td>
+                            35
+                        </td>
+
+                        <td>
+                            15 Jun 2026
+                        </td>
+
+                        <td>
+                            16 Jun 2026
+                        </td>
+
+                        <td>
+
+                            <span class="badge-warning">
+                                Scheduled
+                            </span>
+
+                        </td>
+
+                        <td>
+
+                            <div class="table-actions">
+
+                                <button class="action-btn view-btn">
+                                    View
+                                </button>
+
+                                <button class="action-btn edit-btn">
+                                    Edit
+                                </button>
+
+                                <button class="action-btn duplicate-btn">
+                                    Duplicate
+                                </button>
+
+                                <button class="action-btn delete-btn">
+                                    Cancel
+                                </button>
+
+                            </div>
+
+                        </td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>AS002</td>
+
+                        <td>
+                            HTML Final Exam
+                        </td>
+
+                        <td>
+                            Batch B
+                        </td>
+
+                        <td>
+                            28
+                        </td>
+
+                        <td>
+                            10 Jun 2026
+                        </td>
+
+                        <td>
+                            10 Jun 2026
+                        </td>
+
+                        <td>
+
+                            <span class="badge-success">
+                                Active
+                            </span>
+
+                        </td>
+
+                        <td>
+
+                            <div class="table-actions">
+
+                                <button class="action-btn view-btn">
+                                    View
+                                </button>
+
+                                <button class="action-btn edit-btn">
+                                    Edit
+                                </button>
+
+                                <button class="action-btn duplicate-btn">
+                                    Duplicate
+                                </button>
+
+                                <button class="action-btn delete-btn">
+                                    Cancel
+                                </button>
+
+                            </div>
+
+                        </td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>AS003</td>
+
+                        <td>
+                            Graphic Design Quiz
+                        </td>
+
+                        <td>
+                            Batch C
+                        </td>
+
+                        <td>
+                            22
+                        </td>
+
+                        <td>
+                            01 Jun 2026
+                        </td>
+
+                        <td>
+                            01 Jun 2026
+                        </td>
+
+                        <td>
+
+                            <span class="badge-primary">
+                                Completed
+                            </span>
+
+                        </td>
+
+                        <td>
+
+                            <div class="table-actions">
+
+                                <button class="action-btn view-btn">
+                                    View
+                                </button>
+
+                                <button class="action-btn edit-btn">
+                                    Edit
+                                </button>
+
+                                <button class="action-btn duplicate-btn">
+                                    Duplicate
+                                </button>
+
+                                <button class="action-btn delete-btn">
+                                    Cancel
+                                </button>
+
+                            </div>
+
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <!-- PAGINATION -->
+
+        <div class="pagination">
+
+            <button>
+                Previous
+            </button>
+
+            <button class="active">
+                1
+            </button>
+
+            <button>
+                2
+            </button>
+
+            <button>
+                3
+            </button>
+
+            <button>
+                Next
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ==========================================
+ASSIGN EXAM MODAL
+========================================== -->
+
+<div class="modal" id="assignExamModal">
+
+    <div class="modal-box large-modal">
+
+        <div class="modal-header">
+
+            <h3>
+                Assign Exam
+            </h3>
+
+            <button class="close-modal">
+                &times;
+            </button>
+
+        </div>
+
+        <div class="modal-body">
+
+            <!-- EXAM INFORMATION -->
+
+            <div class="form-section">
+
+                <h4>
+                    Exam Information
+                </h4>
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label>
+                            Select Exam *
+                        </label>
+
+                        <select
+                        id="examSelect"
+                        class="form-control">
+
+                            <option>
+                                Select Exam
+                            </option>
+
+                            <option>
+                                MS Excel Monthly Test
+                            </option>
+
+                            <option>
+                                HTML Final Exam
+                            </option>
+
+                            <option>
+                                Graphic Design Quiz
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>
+                            Assignment Type
+                        </label>
+
+                        <select
+                        id="assignmentType"
+                        class="form-control">
+
+                            <option value="batch">
+                                Batch Assignment
+                            </option>
+
+                            <option value="student">
+                                Individual Students
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- BATCH SECTION -->
+
+            <div id="batchAssignmentSection">
+
+                <div class="form-section">
+
+                    <h4>
+                        Batch Selection
+                    </h4>
+
+                    <div class="form-group">
+
+                        <label>
+                            Select Batch *
+                        </label>
+
+                        <select
+                        id="batchSelect"
+                        class="form-control">
+
+                            <option>
+                                Select Batch
+                            </option>
+
+                            <option>
+                                Batch A
+                            </option>
+
+                            <option>
+                                Batch B
+                            </option>
+
+                            <option>
+                                Batch C
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- STUDENT SECTION -->
+
+            <div
+            id="studentAssignmentSection"
+            style="display:none;">
+
+                <div class="form-section">
+
+                    <h4>
+                        Student Selection
+                    </h4>
+
+                    <input
+                    type="text"
+                    class="form-control"
+                    placeholder="Search Student">
+
+                    <div class="student-selection-list">
+
+                        <label class="student-item">
+
+                            <input type="checkbox">
+
+                            Ahmed Ali
+
+                        </label>
+
+                        <label class="student-item">
+
+                            <input type="checkbox">
+
+                            Hassan Raza
+
+                        </label>
+
+                        <label class="student-item">
+
+                            <input type="checkbox">
+
+                            Syed Ali
+
+                        </label>
+
+                        <label class="student-item">
+
+                            <input type="checkbox">
+
+                            Fatima Zahra
+
+                        </label>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- SCHEDULE -->
+
+            <div class="form-section">
+
+                <h4>
+                    Schedule
+                </h4>
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label>
+                            Start Date & Time
+                        </label>
+
+                        <input
+                        type="datetime-local"
+                        class="form-control">
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>
+                            End Date & Time
+                        </label>
+
+                        <input
+                        type="datetime-local"
+                        class="form-control">
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- RULES -->
+
+            <div class="form-section">
+
+                <h4>
+                    Exam Rules
+                </h4>
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label>
+                            Attempts Allowed
+                        </label>
+
+                        <input
+                        type="number"
+                        value="1"
+                        class="form-control">
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>
+                            Duration Override (Minutes)
+                        </label>
+
+                        <input
+                        type="number"
+                        class="form-control">
+
+                    </div>
+
+                </div>
+
+                <div class="checkbox-group">
+
+                    <label>
+
+                        <input type="checkbox">
+
+                        Show Result After Submission
+
+                    </label>
+
+                    <label>
+
+                        <input type="checkbox">
+
+                        Shuffle Questions
+
+                    </label>
+
+                    <label>
+
+                        <input type="checkbox">
+
+                        Shuffle Options
+
+                    </label>
+
+                </div>
+
+            </div>
+
+            <!-- STATUS -->
+
+            <div class="form-section">
+
+                <h4>
+                    Status
+                </h4>
+
+                <select class="form-control">
+
+                    <option>
+                        Scheduled
+                    </option>
+
+                    <option>
+                        Active
+                    </option>
+
+                    <option>
+                        Draft
+                    </option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+        <div class="modal-footer">
+
+            <button class="btn btn-dark close-modal">
+
+                Cancel
+
+            </button>
+
+            <button
+            class="btn btn-primary"
+            id="saveAssignmentBtn">
+
+                Save Assignment
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ==========================================
+VIEW ASSIGNMENT MODAL
+========================================== -->
+
+<div class="modal" id="viewAssignmentModal">
+
+    <div class="modal-box">
+
+        <div class="modal-header">
+
+            <h3>
+                Assignment Details
+            </h3>
+
+            <button class="close-modal">
+                &times;
+            </button>
+
+        </div>
+
+        <div class="modal-body">
+
+            <div class="details-grid">
+
+                <div>
+                    <strong>Exam:</strong>
+                    <p>MS Excel Monthly Test</p>
+                </div>
+
+                <div>
+                    <strong>Batch:</strong>
+                    <p>Batch A</p>
+                </div>
+
+                <div>
+                    <strong>Students:</strong>
+                    <p>35</p>
+                </div>
+
+                <div>
+                    <strong>Status:</strong>
+                    <p>Scheduled</p>
+                </div>
+
+                <div>
+                    <strong>Start Date:</strong>
+                    <p>15 Jun 2026</p>
+                </div>
+
+                <div>
+                    <strong>End Date:</strong>
+                    <p>16 Jun 2026</p>
+                </div>
+
+                <div>
+                    <strong>Attempts:</strong>
+                    <p>1</p>
+                </div>
+
+                <div>
+                    <strong>Shuffle Questions:</strong>
+                    <p>Enabled</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ==========================================
+ASSIGN EXAM MODAL (UPDATED FLOW)
+Exam → Batch → Assign To → Schedule → Rules
+========================================== -->
+
+<!-- ==========================================
+ASSIGN EXAM MODAL
+Professional Version
+Exam → Batch → Assign To → Multi Student Dropdown
+========================================== -->
+
+<div class="modal" id="assignExamModal">
+
+    <div class="modal-box large-modal">
+
+        <div class="modal-header">
+
+            <h3>
+                Assign Exam
+            </h3>
+
+            <button class="close-modal">
+                &times;
+            </button>
+
+        </div>
+
+        <div class="modal-body">
+
+            <!-- EXAM INFORMATION -->
+
+            <div class="form-section">
+
+                <h4>
+                    Exam Information
+                </h4>
+
+                <div class="form-group">
+
+                    <label>
+                        Select Exam *
+                    </label>
+
+                    <select
+                    id="examSelect"
+                    class="form-control">
+
+                        <option value="">
+                            Select Exam
+                        </option>
+
+                        <option>
+                            MS Excel Monthly Test
+                        </option>
+
+                        <option>
+                            HTML Final Exam
+                        </option>
+
+                        <option>
+                            Graphic Design Quiz
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+            <!-- BATCH INFORMATION -->
+
+            <div class="form-section">
+
+                <h4>
+                    Batch Information
+                </h4>
+
+                <div class="form-group">
+
+                    <label>
+                        Select Batch *
+                    </label>
+
+                    <select
+                    id="batchSelect"
+                    class="form-control">
+
+                        <option value="">
+                            Select Batch
+                        </option>
+
+                        <option>
+                            Batch A
+                        </option>
+
+                        <option>
+                            Batch B
+                        </option>
+
+                        <option>
+                            Batch C
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+            <!-- ASSIGNMENT TYPE -->
+
+            <div class="form-section">
+
+                <h4>
+                    Assignment Type
+                </h4>
+
+                <div class="radio-group">
+
+                    <label>
+
+                        <input
+                        type="radio"
+                        name="assignType"
+                        value="batch"
+                        checked>
+
+                        Entire Batch
+
+                    </label>
+
+                    <label>
+
+                        <input
+                        type="radio"
+                        name="assignType"
+                        value="students">
+
+                        Selected Students
+
+                    </label>
+
+                </div>
+
+            </div>
+
+            <!-- STUDENT MULTI SELECT -->
+
+            <div
+            id="studentSelectionSection"
+            class="form-section"
+            style="display:none;">
+
+                <h4>
+                    Select Students
+                </h4>
+
+                <div class="form-group">
+
+                    <label>
+                        Students
+                    </label>
+
+                    <select
+                    id="studentSelect"
+                    class="form-control"
+                    multiple
+                    size="10">
+
+                        <option>
+                            Ahmed Ali
+                        </option>
+
+                        <option>
+                            Hassan Raza
+                        </option>
+
+                        <option>
+                            Syed Ali
+                        </option>
+
+                        <option>
+                            Fatima Zahra
+                        </option>
+
+                        <option>
+                            Mehdi Abbas
+                        </option>
+
+                        <option>
+                            Ali Haider
+                        </option>
+
+                        <option>
+                            Muhammad Raza
+                        </option>
+
+                        <option>
+                            Zain Abbas
+                        </option>
+
+                        <option>
+                            Sajjad Hussain
+                        </option>
+
+                        <option>
+                            Aqeel Ahmed
+                        </option>
+
+                    </select>
+
+                    <small>
+
+                        Hold Ctrl (Windows) or Cmd (Mac) to select multiple students.
+
+                    </small>
+
+                </div>
+
+            </div>
+
+            <!-- SUMMARY -->
+
+            <div
+            id="assignmentSummary"
+            class="summary-card">
+
+                <h4>
+                    Assignment Summary
+                </h4>
+
+                <div class="summary-grid">
+
+                    <div>
+
+                        <span>
+                            Exam
+                        </span>
+
+                        <strong id="summaryExam">
+                            -
+                        </strong>
+
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Batch
+                        </span>
+
+                        <strong id="summaryBatch">
+                            -
+                        </strong>
+
+                    </div>
+
+                    <div>
+
+                        <span>
+                            Students Selected
+                        </span>
+
+                        <strong id="selectedStudentsCount">
+                            Entire Batch
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- SCHEDULE -->
+
+            <div class="form-section">
+
+                <h4>
+                    Schedule
+                </h4>
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label>
+                            Start Date & Time
+                        </label>
+
+                        <input
+                        type="datetime-local"
+                        class="form-control">
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>
+                            End Date & Time
+                        </label>
+
+                        <input
+                        type="datetime-local"
+                        class="form-control">
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- EXAM RULES -->
+
+            <div class="form-section">
+
+                <h4>
+                    Exam Rules
+                </h4>
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label>
+                            Attempts Allowed
+                        </label>
+
+                        <input
+                        type="number"
+                        class="form-control"
+                        value="1">
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>
+                            Duration Override (Minutes)
+                        </label>
+
+                        <input
+                        type="number"
+                        class="form-control">
+
+                    </div>
+
+                </div>
+
+                <div class="checkbox-group">
+
+                    <label>
+
+                        <input type="checkbox">
+
+                        Show Result After Submission
+
+                    </label>
+
+                    <label>
+
+                        <input type="checkbox">
+
+                        Shuffle Questions
+
+                    </label>
+
+                    <label>
+
+                        <input type="checkbox">
+
+                        Shuffle Options
+
+                    </label>
+
+                </div>
+
+            </div>
+
+            <!-- STATUS -->
+
+            <div class="form-section">
+
+                <h4>
+                    Status
+                </h4>
+
+                <select class="form-control">
+
+                    <option>
+                        Scheduled
+                    </option>
+
+                    <option>
+                        Active
+                    </option>
+
+                    <option>
+                        Draft
+                    </option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+        <div class="modal-footer">
+
+            <button
+            class="btn btn-dark close-modal">
+
+                Cancel
+
+            </button>
+
+            <button
+            class="btn btn-primary"
+            id="saveAssignmentBtn">
+
+                Save Assignment
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ==========================================
+VIEW ASSIGNMENT MODAL
+========================================== -->
+
+<div class="modal" id="viewAssignmentModal">
+
+    <div class="modal-box">
+
+        <div class="modal-header">
+
+            <h3>
+                Assignment Details
+            </h3>
+
+            <button class="close-modal">
+                &times;
+            </button>
+
+        </div>
+
+        <div class="modal-body">
+
+            <div class="details-grid">
+
+                <div>
+                    <strong>Exam</strong>
+                    <p>MS Excel Monthly Test</p>
+                </div>
+
+                <div>
+                    <strong>Batch</strong>
+                    <p>Batch A</p>
+                </div>
+
+                <div>
+                    <strong>Students</strong>
+                    <p>35 Students</p>
+                </div>
+
+                <div>
+                    <strong>Status</strong>
+                    <p>Scheduled</p>
+                </div>
+
+                <div>
+                    <strong>Start Date</strong>
+                    <p>15 Jun 2026</p>
+                </div>
+
+                <div>
+                    <strong>End Date</strong>
+                    <p>16 Jun 2026</p>
+                </div>
+
+                <div>
+                    <strong>Attempts</strong>
+                    <p>1</p>
+                </div>
+
+                <div>
+                    <strong>Shuffle Questions</strong>
+                    <p>Enabled</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ==========================================
+CANCEL ASSIGNMENT MODAL
+========================================== -->
+
+<div class="modal" id="cancelAssignmentModal">
+
+    <div class="modal-box small-modal">
+
+        <div class="modal-header">
+
+            <h3>
+                Cancel Assignment
+            </h3>
+
+            <button class="close-modal">
+                &times;
+            </button>
+
+        </div>
+
+        <div class="modal-body">
+
+            <p>
+
+                Are you sure you want to cancel this assignment?
+
+            </p>
+
+            <div class="form-group">
+
+                <label>
+                    Reason
+                </label>
+
+                <textarea
+                rows="4"
+                class="form-control"
+                placeholder="Enter cancellation reason..."></textarea>
+
+            </div>
+
+        </div>
+
+        <div class="modal-footer">
+
+            <button
+            class="btn btn-dark close-modal">
+
+                No
+
+            </button>
+
+            <button
+            class="btn btn-danger"
+            id="confirmCancelAssignment">
+
+                Yes, Cancel Assignment
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+    $(document).ready(function () {
+
+    /* =====================================
+       PROFILE DROPDOWN
+    ===================================== */
+
+    $("#profileToggle").click(function (e) {
+
+        e.stopPropagation();
+
+        $("#profileMenu").toggleClass("show");
+
+    });
+
+    $(document).click(function () {
+
+        $("#profileMenu").removeClass("show");
+
+    });
+
+    /* =====================================
+       OPEN ASSIGN EXAM MODAL
+    ===================================== */
+
+    $("#openAssignExamModal").click(function () {
+
+        $("#assignExamModal").css("display", "flex");
+
+    });
+
+    /* =====================================
+       CLOSE MODALS
+    ===================================== */
+
+    $(".close-modal").click(function () {
+
+        $(".modal").hide();
+
+    });
+
+    $(".modal").click(function (e) {
+
+        if ($(e.target).hasClass("modal")) {
+
+            $(this).hide();
+
+        }
+
+    });
+
+    /* =====================================
+       ASSIGNMENT TYPE SWITCH
+    ===================================== */
+
+    $("#assignmentType").change(function () {
+
+        let assignmentType = $(this).val();
+
+        if (assignmentType === "student") {
+
+            $("#studentAssignmentSection").slideDown();
+
+            $("#batchAssignmentSection").hide();
+
+        }
+        else {
+
+            $("#batchAssignmentSection").slideDown();
+
+            $("#studentAssignmentSection").hide();
+
+        }
+
+    });
+
+    /* =====================================
+       SAVE ASSIGNMENT
+    ===================================== */
+
+    $("#saveAssignmentBtn").click(function () {
+
+        let exam = $("#examSelect").val();
+
+        if (exam === "" || exam === "Select Exam") {
+
+            alert("Please select an exam.");
+
+            return;
+
+        }
+
+        let assignmentType = $("#assignmentType").val();
+
+        if (assignmentType === "batch") {
+
+            let batch = $("#batchSelect").val();
+
+            if (batch === "" || batch === "Select Batch") {
+
+                alert("Please select a batch.");
+
+                return;
+
+            }
+
+        }
+
+        alert("Exam Assigned Successfully");
+
+        $("#assignExamModal").hide();
+
+    });
+
+    /* =====================================
+       VIEW ASSIGNMENT
+    ===================================== */
+
+    $(".view-btn").click(function () {
+
+        $("#viewAssignmentModal").css("display", "flex");
+
+    });
+
+    /* =====================================
+       EDIT ASSIGNMENT
+    ===================================== */
+
+    $(".edit-btn").click(function () {
+
+        $("#assignExamModal").css("display", "flex");
+
+    });
+
+    /* =====================================
+       DUPLICATE ASSIGNMENT
+    ===================================== */
+
+    $(".duplicate-btn").click(function () {
+
+        if (confirm("Create a duplicate of this assignment?")) {
+
+            alert("Assignment duplicated successfully.");
+
+        }
+
+    });
+
+    /* =====================================
+       CANCEL ASSIGNMENT
+    ===================================== */
+
+    $(".delete-btn").click(function () {
+
+        $("#cancelAssignmentModal").css("display", "flex");
+
+    });
+
+    $("#confirmCancelAssignment").click(function () {
+
+        alert("Assignment Cancelled Successfully");
+
+        $("#cancelAssignmentModal").hide();
+
+    });
+
+    /* =====================================
+       STUDENT SEARCH DEMO
+    ===================================== */
+
+    $("#studentSearch").on("keyup", function () {
+
+        let value = $(this).val().toLowerCase();
+
+        $(".student-item").filter(function () {
+
+            $(this).toggle(
+
+                $(this).text().toLowerCase().indexOf(value) > -1
+
+            );
+
+        });
+
+    });
+
+    /* =====================================
+       PAGINATION DEMO
+    ===================================== */
+
+    $(".pagination button").click(function () {
+
+        $(".pagination button").removeClass("active");
+
+        $(this).addClass("active");
+
+    });
+
+    /* =====================================
+       TABLE SEARCH DEMO
+    ===================================== */
+
+    $("#assignmentSearch").on("keyup", function () {
+
+        let value = $(this).val().toLowerCase();
+
+        $(".custom-table tbody tr").filter(function () {
+
+            $(this).toggle(
+
+                $(this).text().toLowerCase().indexOf(value) > -1
+
+            );
+
+        });
+
+    });
+
+    /* =====================================
+       RESET FILTERS
+    ===================================== */
+
+    $("#resetFilters").click(function () {
+
+        $(".filter-card input").val("");
+
+        $(".filter-card select").prop("selectedIndex", 0);
+
+        $(".custom-table tbody tr").show();
+
+    });
+
+    /* =====================================
+       DEMO ROW HOVER EFFECT
+    ===================================== */
+
+    $(".custom-table tbody tr").hover(
+
+        function () {
+
+            $(this).addClass("row-hover");
+
+        },
+
+        function () {
+
+            $(this).removeClass("row-hover");
+
+        }
+
+    );
+
+});
+</script>
+
+</body>
+</html>

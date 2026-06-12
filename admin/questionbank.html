@@ -1,0 +1,1236 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Question Bank</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/style.css">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+</head>
+
+<body class="admin-body">
+
+<!-- SIDEBAR -->
+
+<div class="admin-sidebar">
+
+    <div class="admin-logo">
+
+        <img src="https://mtechinstitute.com/wp-content/uploads/2025/03/weblogoblue.png">
+
+    </div>
+
+    <ul class="admin-menu">
+
+        <li>
+            <a href="index.html">Dashboard</a>
+        </li>
+
+        <li>
+            <a href="students.html">Students</a>
+        </li>
+
+        <li>
+            <a href="teachers.html">Teachers</a>
+        </li>
+
+        <li>
+            <a href="courses.html">Courses</a>
+        </li>
+
+        <li>
+            <a href="batches.html">Batches</a>
+        </li>
+
+        <li class="active">
+            <a href="question-bank.html">Question Bank</a>
+        </li>
+
+        <li>
+            <a href="exams.html">Exams</a>
+        </li>
+
+        <li>
+            <a href="assign-exams.html">Assign Exams</a>
+        </li>
+
+        <li>
+            <a href="results.html">Results</a>
+        </li>
+
+        <li>
+            <a href="#">Settings</a>
+        </li>
+
+        <li>
+            <a href="#">Logout</a>
+        </li>
+
+    </ul>
+
+</div>
+
+<!-- MAIN -->
+
+<div class="admin-main">
+
+    <!-- TOPBAR -->
+
+    <div class="admin-topbar">
+
+        <div>
+
+            <h2>Question Bank</h2>
+
+            <p>
+                Manage and organize examination questions
+            </p>
+
+        </div>
+
+        <div class="admin-profile-dropdown">
+
+            <div class="admin-profile-btn" id="profileToggle">
+
+                <div class="admin-avatar">
+                    M
+                </div>
+
+                <div>
+
+                    <h4>Administrator</h4>
+
+                    <small>
+                        Super Admin
+                    </small>
+
+                </div>
+
+            </div>
+
+            <div class="admin-dropdown-menu" id="profileMenu">
+
+                <a href="#">
+                    Settings
+                </a>
+
+                <a href="#">
+                    Logout
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- PAGE HEADER -->
+
+    <div class="page-header">
+
+        <div>
+
+            <h2>
+                Question Bank
+            </h2>
+
+            <p>
+                Create, organize and manage question repository
+            </p>
+
+        </div>
+
+        <div class="header-actions">
+
+            <button
+            class="btn btn-dark"
+            id="openImportModal">
+
+                Import Questions
+
+            </button>
+
+            <button
+            class="btn btn-primary"
+            id="openQuestionModal">
+
+                + Add Question
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- STATS -->
+
+    <div class="stats-grid">
+
+        <div class="stat-card">
+
+            <h4>Total Questions</h4>
+
+            <h2>5,420</h2>
+
+        </div>
+
+        <div class="stat-card">
+
+            <h4>MCQ Questions</h4>
+
+            <h2>4,980</h2>
+
+        </div>
+
+        <div class="stat-card">
+
+            <h4>Active Questions</h4>
+
+            <h2>5,120</h2>
+
+        </div>
+
+        <div class="stat-card">
+
+            <h4>Courses Covered</h4>
+
+            <h2>18</h2>
+
+        </div>
+
+    </div>
+
+    <!-- FILTER SECTION -->
+
+    <div class="filter-card">
+
+        <div class="filter-grid">
+
+            <input
+            type="text"
+            class="form-control"
+            placeholder="Search Question">
+
+            <select class="form-control">
+
+                <option>
+                    All Courses
+                </option>
+
+                <option>
+                    MS Office
+                </option>
+
+                <option>
+                    Web Designing
+                </option>
+
+                <option>
+                    Graphic Designing
+                </option>
+
+            </select>
+
+            <select class="form-control">
+
+                <option>
+                    All Subjects
+                </option>
+
+                <option>
+                    MS Word
+                </option>
+
+                <option>
+                    MS Excel
+                </option>
+
+                <option>
+                    HTML
+                </option>
+
+            </select>
+
+            <select class="form-control">
+
+                <option>
+                    All Difficulties
+                </option>
+
+                <option>
+                    Easy
+                </option>
+
+                <option>
+                    Medium
+                </option>
+
+                <option>
+                    Hard
+                </option>
+
+            </select>
+
+            <select class="form-control">
+
+                <option>
+                    All Status
+                </option>
+
+                <option>
+                    Active
+                </option>
+
+                <option>
+                    Inactive
+                </option>
+
+            </select>
+
+        </div>
+
+        <div class="filter-actions">
+
+            <button class="btn btn-primary">
+
+                Search
+
+            </button>
+
+            <button class="btn btn-dark">
+
+                Reset
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <!-- QUESTION TABLE -->
+
+    <div class="table-card">
+
+        <div class="table-card-header">
+
+            <h3>
+                Question Repository
+            </h3>
+
+        </div>
+
+        <div class="table-responsive">
+
+            <table class="custom-table">
+
+                <thead>
+
+                    <tr>
+
+                        <th>ID</th>
+
+                        <th>Question</th>
+
+                        <th>Type</th>
+
+                        <th>Difficulty</th>
+
+                        <th>Marks</th>
+
+                        <th>Status</th>
+
+                        <th>Actions</th>
+
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    <tr>
+
+                        <td>Q001</td>
+
+                        <td>
+                            Which function is used to calculate SUM in Excel?
+                        </td>
+
+                        <td>
+                            MCQ
+                        </td>
+
+                        <td>
+                            Easy
+                        </td>
+
+                        <td>
+                            1
+                        </td>
+
+                        <td>
+
+                            <span class="badge-success">
+                                Active
+                            </span>
+
+                        </td>
+
+                        <td>
+
+                            <div class="table-actions">
+
+                                <button class="action-btn view-btn">
+                                    View
+                                </button>
+
+                                <button class="action-btn edit-btn">
+                                    Edit
+                                </button>
+
+                                <button class="action-btn delete-btn">
+                                    Delete
+                                </button>
+
+                            </div>
+
+                        </td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>Q002</td>
+
+                        <td>
+                            Which HTML tag creates a hyperlink?
+                        </td>
+
+                        <td>
+                            MCQ
+                        </td>
+
+                        <td>
+                            Medium
+                        </td>
+
+                        <td>
+                            2
+                        </td>
+
+                        <td>
+
+                            <span class="badge-success">
+                                Active
+                            </span>
+
+                        </td>
+
+                        <td>
+
+                            <div class="table-actions">
+
+                                <button class="action-btn view-btn">
+                                    View
+                                </button>
+
+                                <button class="action-btn edit-btn">
+                                    Edit
+                                </button>
+
+                                <button class="action-btn delete-btn">
+                                    Delete
+                                </button>
+
+                            </div>
+
+                        </td>
+
+                    </tr>
+
+                    <tr>
+
+                        <td>Q003</td>
+
+                        <td>
+                            MS Excel is a Spreadsheet Software.
+                        </td>
+
+                        <td>
+                            True / False
+                        </td>
+
+                        <td>
+                            Easy
+                        </td>
+
+                        <td>
+                            1
+                        </td>
+
+                        <td>
+
+                            <span class="badge-danger">
+                                Inactive
+                            </span>
+
+                        </td>
+
+                        <td>
+
+                            <div class="table-actions">
+
+                                <button class="action-btn view-btn">
+                                    View
+                                </button>
+
+                                <button class="action-btn edit-btn">
+                                    Edit
+                                </button>
+
+                                <button class="action-btn delete-btn">
+                                    Delete
+                                </button>
+
+                            </div>
+
+                        </td>
+
+                    </tr>
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+        <!-- PAGINATION -->
+
+        <div class="pagination">
+
+            <button>
+                Previous
+            </button>
+
+            <button class="active">
+                1
+            </button>
+
+            <button>
+                2
+            </button>
+
+            <button>
+                3
+            </button>
+
+            <button>
+                Next
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ==========================================
+QUESTION CONTEXT MODAL
+========================================== -->
+
+<div class="modal" id="questionContextModal">
+
+    <div class="modal-box small-modal">
+
+        <div class="modal-header">
+
+            <h3>
+                Select Course & Subject
+            </h3>
+
+            <button class="close-modal">
+                &times;
+            </button>
+
+        </div>
+
+        <div class="modal-body">
+
+            <div class="form-group">
+
+                <label>
+                    Course *
+                </label>
+
+                <select
+                id="questionCourse"
+                class="form-control">
+
+                    <option value="">
+                        Select Course
+                    </option>
+
+                    <option>
+                        MS Office
+                    </option>
+
+                    <option>
+                        Web Designing
+                    </option>
+
+                    <option>
+                        Graphic Designing
+                    </option>
+
+                </select>
+
+            </div>
+
+            <div class="form-group">
+
+                <label>
+                    Subject *
+                </label>
+
+                <select
+                id="questionSubject"
+                class="form-control">
+
+                    <option value="">
+                        Select Subject
+                    </option>
+
+                    <option>
+                        MS Word
+                    </option>
+
+                    <option>
+                        MS Excel
+                    </option>
+
+                    <option>
+                        PowerPoint
+                    </option>
+
+                    <option>
+                        HTML
+                    </option>
+
+                    <option>
+                        CSS
+                    </option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+        <div class="modal-footer">
+
+            <button
+            class="btn btn-primary"
+            id="continueQuestionBtn">
+
+                Continue
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ==========================================
+ADD QUESTION MODAL
+========================================== -->
+
+<div class="modal" id="questionModal">
+
+    <div class="modal-box large-modal">
+
+        <div class="modal-header">
+
+            <h3>
+                Add New Question
+            </h3>
+
+            <button class="close-modal">
+                &times;
+            </button>
+
+        </div>
+
+        <div class="modal-body">
+
+            <!-- SELECTED CONTEXT -->
+
+            <div class="question-context-info">
+
+                <div>
+
+                    <span>
+                        Course
+                    </span>
+
+                    <strong id="modalCourse">
+                        MS Office
+                    </strong>
+
+                </div>
+
+                <div>
+
+                    <span>
+                        Subject
+                    </span>
+
+                    <strong id="modalSubject">
+                        MS Excel
+                    </strong>
+
+                </div>
+
+            </div>
+
+            <!-- QUESTION SETTINGS -->
+
+            <div class="form-grid">
+
+                <div class="form-group">
+
+                    <label>
+                        Question Type
+                    </label>
+
+                    <select class="form-control">
+
+                        <option>
+                            MCQ
+                        </option>
+
+                        <option>
+                            True / False
+                        </option>
+
+                    </select>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>
+                        Difficulty
+                    </label>
+
+                    <select class="form-control">
+
+                        <option>
+                            Easy
+                        </option>
+
+                        <option>
+                            Medium
+                        </option>
+
+                        <option>
+                            Hard
+                        </option>
+
+                    </select>
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>
+                        Marks
+                    </label>
+
+                    <input
+                    type="number"
+                    class="form-control"
+                    value="1">
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>
+                        Status
+                    </label>
+
+                    <select class="form-control">
+
+                        <option>
+                            Active
+                        </option>
+
+                        <option>
+                            Inactive
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+            <!-- QUESTION -->
+
+            <div class="form-group">
+
+                <label>
+                    Question
+                </label>
+
+                <textarea
+                id="questionText"
+                rows="5"
+                class="form-control"
+                placeholder="Enter your question here..."></textarea>
+
+            </div>
+
+            <!-- OPTIONS -->
+
+            <div class="form-grid">
+
+                <div class="form-group">
+
+                    <label>
+                        Option A
+                    </label>
+
+                    <input
+                    type="text"
+                    id="optionA"
+                    class="form-control">
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>
+                        Option B
+                    </label>
+
+                    <input
+                    type="text"
+                    id="optionB"
+                    class="form-control">
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>
+                        Option C
+                    </label>
+
+                    <input
+                    type="text"
+                    id="optionC"
+                    class="form-control">
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>
+                        Option D
+                    </label>
+
+                    <input
+                    type="text"
+                    id="optionD"
+                    class="form-control">
+
+                </div>
+
+            </div>
+
+            <!-- ANSWER -->
+
+            <div class="form-group">
+
+                <label>
+                    Correct Answer
+                </label>
+
+                <select
+                id="correctAnswer"
+                class="form-control">
+
+                    <option>
+                        Option A
+                    </option>
+
+                    <option>
+                        Option B
+                    </option>
+
+                    <option>
+                        Option C
+                    </option>
+
+                    <option>
+                        Option D
+                    </option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+        <div class="modal-footer">
+
+            <button class="btn btn-dark close-modal">
+
+                Cancel
+
+            </button>
+
+            <button
+            class="btn btn-primary"
+            id="saveQuestionBtn">
+
+                Save
+
+            </button>
+
+            <button
+            class="btn btn-success"
+            id="saveNextBtn">
+
+                Save & Add Next
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ==========================================
+VIEW QUESTION MODAL
+========================================== -->
+
+<div class="modal" id="viewQuestionModal">
+
+    <div class="modal-box">
+
+        <div class="modal-header">
+
+            <h3>
+                Question Details
+            </h3>
+
+            <button class="close-modal">
+                &times;
+            </button>
+
+        </div>
+
+        <div class="modal-body">
+
+            <div class="question-preview">
+
+                <h4>
+
+                    Which function is used to calculate SUM in Excel?
+
+                </h4>
+
+                <hr>
+
+                <p>
+                    <strong>A.</strong> SUM()
+                </p>
+
+                <p>
+                    <strong>B.</strong> AVG()
+                </p>
+
+                <p>
+                    <strong>C.</strong> COUNT()
+                </p>
+
+                <p>
+                    <strong>D.</strong> MAX()
+                </p>
+
+                <br>
+
+                <p>
+
+                    <strong>
+                        Correct Answer:
+                    </strong>
+
+                    SUM()
+
+                </p>
+
+                <p>
+
+                    <strong>
+                        Difficulty:
+                    </strong>
+
+                    Easy
+
+                </p>
+
+                <p>
+
+                    <strong>
+                        Marks:
+                    </strong>
+
+                    1
+
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- ==========================================
+IMPORT QUESTIONS MODAL
+========================================== -->
+
+<div class="modal" id="importModal">
+
+    <div class="modal-box">
+
+        <div class="modal-header">
+
+            <h3>
+                Import Questions
+            </h3>
+
+            <button class="close-modal">
+                &times;
+            </button>
+
+        </div>
+
+        <div class="modal-body">
+
+            <div class="form-group">
+
+                <label>
+                    Download Template
+                </label>
+
+                <button
+                id="downloadTemplateBtn"
+                class="btn btn-dark">
+
+                    Download Excel Template
+
+                </button>
+
+            </div>
+
+            <div class="form-group">
+
+                <label>
+                    Upload File
+                </label>
+
+                <input
+                type="file"
+                id="questionFile"
+                class="form-control">
+
+            </div>
+
+        </div>
+
+        <div class="modal-footer">
+
+            <button
+            class="btn btn-primary"
+            id="importQuestionsBtn">
+
+                Import Questions
+
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+    $(document).ready(function () {
+
+    /* OPEN COURSE/SUBJECT MODAL */
+
+    $("#openQuestionModal").click(function () {
+
+        $("#questionContextModal").css("display", "flex");
+
+    });
+
+    /* CONTINUE */
+
+    $("#continueQuestionBtn").click(function () {
+
+        let course = $("#questionCourse").val();
+        let subject = $("#questionSubject").val();
+
+        if (course === "" || subject === "") {
+
+            alert("Please select Course and Subject.");
+
+            return;
+
+        }
+
+        $("#modalCourse").text(course);
+        $("#modalSubject").text(subject);
+
+        $("#questionContextModal").hide();
+
+        $("#questionModal").css("display", "flex");
+
+    });
+
+    /* SAVE */
+
+    $("#saveQuestionBtn").click(function () {
+
+        alert("Question Saved Successfully");
+
+        $(".modal").hide();
+
+    });
+
+    /* SAVE & ADD NEXT */
+
+    $("#saveNextBtn").click(function () {
+
+        alert("Question Saved");
+
+        $("#questionText").val("");
+
+        $("#optionA").val("");
+        $("#optionB").val("");
+        $("#optionC").val("");
+        $("#optionD").val("");
+
+        $("#correctAnswer").prop("selectedIndex", 0);
+
+    });
+
+    /* IMPORT */
+
+    $("#openImportModal").click(function () {
+
+        $("#importModal").css("display", "flex");
+
+    });
+
+    $("#importQuestionsBtn").click(function () {
+
+        if ($("#questionFile").val() === "") {
+
+            alert("Please select a file.");
+
+            return;
+
+        }
+
+        alert("Questions Imported Successfully");
+
+        $("#importModal").hide();
+
+    });
+
+    /* VIEW */
+
+    $(".view-btn").click(function () {
+
+        $("#viewQuestionModal").css("display", "flex");
+
+    });
+
+    /* EDIT */
+
+    $(".edit-btn").click(function () {
+
+        $("#questionContextModal").css("display", "flex");
+
+    });
+
+    /* DELETE */
+
+    $(".delete-btn").click(function () {
+
+        if (confirm("Delete this question?")) {
+
+            $(this).closest("tr").fadeOut();
+
+        }
+
+    });
+
+    /* CLOSE */
+
+    $(".close-modal").click(function () {
+
+        $(".modal").hide();
+
+    });
+
+    $(".modal").click(function (e) {
+
+        if ($(e.target).hasClass("modal")) {
+
+            $(this).hide();
+
+        }
+
+    });
+
+    /* PROFILE */
+
+    $("#profileToggle").click(function (e) {
+
+        e.stopPropagation();
+
+        $("#profileMenu").toggleClass("show");
+
+    });
+
+    $(document).click(function () {
+
+        $("#profileMenu").removeClass("show");
+
+    });
+
+});
+</script>
+
+</body>
+</html>
