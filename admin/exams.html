@@ -15,7 +15,12 @@
 <link rel="stylesheet" href="css/style.css">
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<link
+rel="stylesheet"
+href="https://cdn.jsdelivr.net/npm/tom-select/dist/css/tom-select.css">
 
+<script
+src="https://cdn.jsdelivr.net/npm/tom-select/dist/js/tom-select.complete.min.js"></script>
 </head>
 
 <body class="admin-body">
@@ -703,60 +708,25 @@ ASSIGN EXAM MODAL
 
             <!-- STUDENT SECTION -->
 
-            <div
-            id="studentAssignmentSection"
-            style="display:none;">
+            <div id="studentSelectionSection">
 
-                <div class="form-section">
+    <label>
+        Select Students
+    </label>
 
-                    <h4>
-                        Student Selection
-                    </h4>
+    <select
+        id="studentSelect"
+        multiple>
 
-                    <input
-                    type="text"
-                    class="form-control"
-                    placeholder="Search Student">
+        <option value="1">Ahmed Ali</option>
+        <option value="2">Hassan Raza</option>
+        <option value="3">Syed Ali</option>
+        <option value="4">Fatima Zahra</option>
+        <option value="5">Mehdi Abbas</option>
 
-                    <div class="student-selection-list">
+    </select>
 
-                        <label class="student-item">
-
-                            <input type="checkbox">
-
-                            Ahmed Ali
-
-                        </label>
-
-                        <label class="student-item">
-
-                            <input type="checkbox">
-
-                            Hassan Raza
-
-                        </label>
-
-                        <label class="student-item">
-
-                            <input type="checkbox">
-
-                            Syed Ali
-
-                        </label>
-
-                        <label class="student-item">
-
-                            <input type="checkbox">
-
-                            Fatima Zahra
-
-                        </label>
-
-                    </div>
-
-                </div>
-
-            </div>
+</div>
 
             <!-- SCHEDULE -->
 
@@ -986,19 +956,14 @@ VIEW ASSIGNMENT MODAL
 </div>
 
 <!-- ==========================================
-ASSIGN EXAM MODAL (UPDATED FLOW)
-Exam → Batch → Assign To → Schedule → Rules
-========================================== -->
-
-<!-- ==========================================
 ASSIGN EXAM MODAL
-Professional Version
-Exam → Batch → Assign To → Multi Student Dropdown
 ========================================== -->
 
 <div class="modal" id="assignExamModal">
 
     <div class="modal-box large-modal">
+
+        <!-- HEADER -->
 
         <div class="modal-header">
 
@@ -1011,6 +976,8 @@ Exam → Batch → Assign To → Multi Student Dropdown
             </button>
 
         </div>
+
+        <!-- BODY -->
 
         <div class="modal-body">
 
@@ -1036,15 +1003,15 @@ Exam → Batch → Assign To → Multi Student Dropdown
                             Select Exam
                         </option>
 
-                        <option>
+                        <option value="excel">
                             MS Excel Monthly Test
                         </option>
 
-                        <option>
+                        <option value="html">
                             HTML Final Exam
                         </option>
 
-                        <option>
+                        <option value="graphic">
                             Graphic Design Quiz
                         </option>
 
@@ -1076,15 +1043,15 @@ Exam → Batch → Assign To → Multi Student Dropdown
                             Select Batch
                         </option>
 
-                        <option>
+                        <option value="batch-a">
                             Batch A
                         </option>
 
-                        <option>
+                        <option value="batch-b">
                             Batch B
                         </option>
 
-                        <option>
+                        <option value="batch-c">
                             Batch C
                         </option>
 
@@ -1131,7 +1098,7 @@ Exam → Batch → Assign To → Multi Student Dropdown
 
             </div>
 
-            <!-- STUDENT MULTI SELECT -->
+            <!-- STUDENT DROPDOWN -->
 
             <div
             id="studentSelectionSection"
@@ -1150,57 +1117,50 @@ Exam → Batch → Assign To → Multi Student Dropdown
 
                     <select
                     id="studentSelect"
-                    class="form-control"
                     multiple
-                    size="10">
+                    placeholder="Search Students...">
 
-                        <option>
+                        <option value="1">
                             Ahmed Ali
                         </option>
 
-                        <option>
+                        <option value="2">
                             Hassan Raza
                         </option>
 
-                        <option>
+                        <option value="3">
                             Syed Ali
                         </option>
 
-                        <option>
+                        <option value="4">
                             Fatima Zahra
                         </option>
 
-                        <option>
+                        <option value="5">
                             Mehdi Abbas
                         </option>
 
-                        <option>
+                        <option value="6">
                             Ali Haider
                         </option>
 
-                        <option>
+                        <option value="7">
                             Muhammad Raza
                         </option>
 
-                        <option>
+                        <option value="8">
                             Zain Abbas
                         </option>
 
-                        <option>
+                        <option value="9">
                             Sajjad Hussain
                         </option>
 
-                        <option>
+                        <option value="10">
                             Aqeel Ahmed
                         </option>
 
                     </select>
-
-                    <small>
-
-                        Hold Ctrl (Windows) or Cmd (Mac) to select multiple students.
-
-                    </small>
 
                 </div>
 
@@ -1208,9 +1168,7 @@ Exam → Batch → Assign To → Multi Student Dropdown
 
             <!-- SUMMARY -->
 
-            <div
-            id="assignmentSummary"
-            class="summary-card">
+            <div class="summary-card">
 
                 <h4>
                     Assignment Summary
@@ -1245,7 +1203,7 @@ Exam → Batch → Assign To → Multi Student Dropdown
                     <div>
 
                         <span>
-                            Students Selected
+                            Students
                         </span>
 
                         <strong id="selectedStudentsCount">
@@ -1314,8 +1272,8 @@ Exam → Batch → Assign To → Multi Student Dropdown
 
                         <input
                         type="number"
-                        class="form-control"
-                        value="1">
+                        value="1"
+                        class="form-control">
 
                     </div>
 
@@ -1368,7 +1326,7 @@ Exam → Batch → Assign To → Multi Student Dropdown
             <div class="form-section">
 
                 <h4>
-                    Status
+                    Assignment Status
                 </h4>
 
                 <select class="form-control">
@@ -1390,6 +1348,8 @@ Exam → Batch → Assign To → Multi Student Dropdown
             </div>
 
         </div>
+
+        <!-- FOOTER -->
 
         <div class="modal-footer">
 
@@ -1413,6 +1373,16 @@ Exam → Batch → Assign To → Multi Student Dropdown
     </div>
 
 </div>
+
+<!-- TOM SELECT CSS -->
+
+<link
+href="https://cdn.jsdelivr.net/npm/tom-select/dist/css/tom-select.css"
+rel="stylesheet">
+
+<!-- TOM SELECT JS -->
+
+<script src="https://cdn.jsdelivr.net/npm/tom-select/dist/js/tom-select.complete.min.js"></script>
 
 <!-- ==========================================
 VIEW ASSIGNMENT MODAL

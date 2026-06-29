@@ -755,6 +755,49 @@ body{
 
     margin-bottom:12px;
 }
+/* =====================================
+   TOM SELECT FIX
+===================================== */
+
+.ts-wrapper {
+    width: 100%;
+}
+
+.ts-control {
+    min-height: 45px;
+    border: 1px solid #ddd !important;
+    border-radius: 8px !important;
+    padding: 8px !important;
+    font-size: 14px;
+    background: #fff;
+}
+
+.ts-control input {
+    font-size: 14px;
+}
+
+.ts-dropdown {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    margin-top: 5px;
+    z-index: 99999 !important;
+}
+
+.ts-dropdown .option {
+    padding: 10px;
+    cursor: pointer;
+}
+
+.ts-dropdown .option:hover {
+    background: #f5f5f5;
+}
+
+.ts-wrapper.multi .ts-control > div {
+    background: #ffcc00;
+    color: #000;
+    border-radius: 4px;
+    padding: 4px 8px;
+}
 
 /* =========================================
    RESPONSIVE
