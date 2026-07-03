@@ -304,65 +304,6 @@ $(document).ready(function () {
 
     });
 
-    /* ======================================
-       VIEW BUTTON
-    ====================================== */
-
-    $(document).on("click", ".view-btn", function () {
-
-        let teacherName = $(this)
-            .closest("tr")
-            .find("td:eq(1)")
-            .text();
-
-        alert("Viewing Teacher: " + teacherName);
-
-    });
-
-    /* ======================================
-       EDIT BUTTON
-    ====================================== */
-
-    $(document).on("click", ".edit-btn", function () {
-
-        let row = $(this).closest("tr");
-
-        let teacherId = row.find("td:eq(0)").text();
-        let teacherName = row.find("td:eq(1)").text();
-
-        $("#teacherModal").fadeIn(200);
-
-        console.log("Edit Teacher", teacherId, teacherName);
-
-    });
-
-    /* ======================================
-       DELETE BUTTON
-    ====================================== */
-
-    $(document).on("click", ".delete-btn", function () {
-
-        let row = $(this).closest("tr");
-
-        let teacherName = row.find("td:eq(1)").text();
-
-        if (
-            confirm(
-                "Are you sure you want to delete " +
-                teacherName +
-                " ?"
-            )
-        ) {
-
-            row.fadeOut(300, function () {
-
-                $(this).remove();
-
-            });
-
-        }
-
-    });
 
     /* ======================================
        RESET PASSWORD
@@ -540,6 +481,308 @@ $(document).ready(function(){
             $(".modal").fadeOut();
 
         }
+
+    });
+
+});
+
+$(document).on('submit', '.delete-course-form', function (e) {
+
+    e.preventDefault();
+
+    let form = this;
+
+    Swal.fire({
+
+        title: 'Are you sure?',
+
+        text: "This course will be permanently deleted.",
+
+        icon: 'warning',
+
+        showCancelButton: true,
+
+        confirmButtonColor: '#d33',
+
+        cancelButtonColor: '#6c757d',
+
+        confirmButtonText: 'Yes, Delete',
+
+        cancelButtonText: 'Cancel'
+
+    }).then((result) => {
+
+        if (result.isConfirmed) {
+
+            form.submit();
+
+        }
+
+    });
+
+});
+
+//view courses jquery
+$(document).on('click', '.view-btn', function () {
+
+    let id = $(this).data('id');
+
+    $.get('/admin/courses/' + id + '/view', function (course) {
+
+        $('#view_course_code').text(course.course_code);
+
+        $('#view_course_name').text(course.course_name);
+
+        $('#view_duration').text(course.duration);
+
+        $('#view_type').text(course.type);
+
+        $('#view_students').text(course.students_count ?? 0);
+
+        $('#view_teachers').text(course.teachers_count ?? 0);
+
+        $('#view_status').text(course.is_active == 1 ? 'Active' : 'Inactive');
+
+        $('#viewCourseModal').fadeIn();
+
+    });
+
+});
+
+
+
+
+
+
+//--------------Edit Btn for Course ----------------------
+$(document).on('click', '.edit-btn', function () {
+
+    let id = $(this).data('id');
+
+    $.ajax({
+        url: '/admin/courses/' + id + '/edit',
+        method: 'GET',
+        dataType: 'json',
+
+        success: function (course) {
+
+            $('#editCourseModal #course_code').val(course.course_code);
+            $('#editCourseModal #course_name').val(course.course_name);
+            $('#editCourseModal #duration').val(course.duration);
+            $('#editCourseModal #type').val(course.type);
+            $('#editCourseModal #description').val(course.description);
+            $('#editCourseModal #is_active').val(course.is_active);
+
+            $('#editCourseModal #courseForm').attr('action', '/admin/courses/' + id);
+
+            $('#editCourseModal #courseForm').find('input[name="_method"]').remove();
+
+            $('#editCourseModal #courseForm').append(
+                '<input type="hidden" name="_method" value="PUT">'
+            );
+
+            $('#editCourseModal #courseModalTitle').text('Edit Course');
+            $('#editCourseModal #courseSubmitBtn').text('Update Course');
+
+            $('#editCourseModal').fadeIn();
+
+        },
+
+        error: function (xhr) {
+            console.log(xhr.responseText);
+        }
+
+    });
+
+});
+
+//####### STUDENT WORK ############
+//###################################
+
+   $(document).ready(function () {
+
+    /* =========================
+       ADD BATCH MODAL
+    ========================= */
+
+    $("#openBatchModal").click(function () {
+
+        $("#batchModal").fadeIn(200);
+
+    });
+
+
+    /* =========================
+       VIEW BATCH MODAL
+    ========================= */
+
+    $(document).on("click", ".view-btn", function () {
+
+        $("#viewBatchModal").fadeIn(200);
+
+    });
+
+
+    /* =========================
+       STUDENTS MODAL
+    ========================= */
+
+    $(document).on("click", ".student-btn", function () {
+
+        $("#studentsModal").fadeIn(200);
+
+    });
+
+
+    /* =========================
+       CLOSE BUTTONS
+    ========================= */
+
+    $(".close-modal").click(function () {
+
+        $(".modal").fadeOut(200);
+
+    });
+
+
+    /* =========================
+       CLICK OUTSIDE MODAL
+    ========================= */
+
+    $(window).click(function (e) {
+
+        if ($(e.target).hasClass("modal")) {
+
+            $(".modal").fadeOut(200);
+
+        }
+
+    });
+
+
+    /* =========================
+       DELETE DEMO
+    ========================= */
+/* 
+    $(document).on("click", ".delete-btn", function () {
+
+        let confirmDelete = confirm(
+            "Are you sure you want to delete this batch?"
+        );
+
+        if (confirmDelete) {
+
+            $(this)
+                .closest("tr")
+                .fadeOut(300);
+
+        }
+
+    });
+ */
+
+    /* =========================
+       EDIT DEMO
+    ========================= */
+
+    $(document).on("click", ".edit-btn", function () {
+
+        $("#batchModal").fadeIn(200);
+
+    });
+
+
+    /* =========================
+       SAVE BATCH DEMO
+    ========================= */
+
+    $("#saveBatchBtn").click(function () {
+
+        alert("Batch saved successfully.");
+
+        $("#batchModal").fadeOut(200);
+
+    });
+
+});
+
+//############ VIEW TEACHER MODAL ###################
+//###################################################
+
+$(document).on('click', '.view-btn', function () {
+
+    let id = $(this).data('id');
+
+    $.ajax({
+
+        url: '/admin/teachers/' + id,
+
+        type: 'GET',
+
+        dataType: 'json',
+
+        success: function (teacher) {
+
+            $('#view_teacher_code').text(teacher.teacher_code);
+            $('#view_teacher_name').text(teacher.teacher_name);
+            $('#view_father_name').text(teacher.father_name);
+            $('#view_cnic').text(teacher.cnic);
+            $('#view_mobile').text(teacher.mobile);
+            $('#view_email').text(teacher.email ?? '-');
+            $('#view_gender').text(teacher.gender);
+            $('#view_qualification').text(teacher.qualification ?? '-');
+            $('#view_designation').text(teacher.designation ?? '-');
+            $('#view_experience').text(teacher.experience + ' Years');
+            $('#view_joining_date').text(teacher.joining_date);
+            $('#view_salary').text('Rs. ' + teacher.salary);
+            $('#view_address').text(teacher.address ?? '-');
+            $('#view_remarks').text(teacher.remarks ?? '-');
+
+            $('#view_status').html(
+                teacher.is_active == 1
+                    ? '<span class="badge-success">Active</span>'
+                    : '<span class="badge-danger">Inactive</span>'
+            );
+
+            $('#viewTeacherModal').fadeIn();
+
+        }
+
+    });
+
+});
+
+
+//############# EDIT TEACHER MODAL ###############
+
+$(document).on('click', '.edit-btn', function () {
+
+    let id = $(this).data('id');
+
+    $.get('/admin/teachers/' + id + '/edit', function (teacher) {
+
+        $('#edit_teacher_code').val(teacher.teacher_code);
+        $('#edit_teacher_name').val(teacher.teacher_name);
+        $('#edit_father_name').val(teacher.father_name);
+        $('#edit_cnic').val(teacher.cnic);
+        $('#edit_mobile').val(teacher.mobile);
+        $('#edit_email').val(teacher.email);
+        $('#edit_gender').val(teacher.gender);
+        $('#edit_qualification').val(teacher.qualification);
+        $('#edit_designation').val(teacher.designation);
+        $('#edit_experience').val(teacher.experience);
+        $('#edit_joining_date').val(teacher.joining_date);
+        $('#edit_salary').val(teacher.salary);
+        $('#edit_address').val(teacher.address);
+        $('#edit_remarks').val(teacher.remarks);
+        $('#edit_is_active').val(teacher.is_active);
+
+        $('#editTeacherForm').attr(
+            'action',
+            '/admin/teachers/' + teacher.id
+        );
+
+        $('#editTeacherModal').fadeIn();
 
     });
 
